@@ -1,0 +1,160 @@
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\favicon.ico
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery\dist\jquery.slim.min.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery\dist\jquery.slim.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\images\icon.svg
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery\dist\jquery.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\css\bootstrap.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery\dist\jquery.min.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery\dist\jquery.min.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery-validation\dist\additional-methods.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\css\style.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\images\star.svg
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery-validation\LICENSE.md
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\js\site.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\images\why us images.svg
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery\dist\jquery.slim.min.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\css\site.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+wwwroot\css\bootstrap.min.css
+wwwroot\css\site.css
+wwwroot\css\style.css
+wwwroot\favicon.ico
+wwwroot\images\Ellipse 7.jpg
+wwwroot\images\Theo Vance.jpg
+wwwroot\images\about p1.jpg
+wwwroot\images\about p2.jpg
+wwwroot\images\about p3.jpg
+wwwroot\images\action dots.jpg
+wwwroot\images\card-header.jpg
+wwwroot\images\dumbbell.jpg
+wwwroot\images\edit.jpg
+wwwroot\images\facebook-f.jpg
+wwwroot\images\feature icon.jpg
+wwwroot\images\icon.jpg
+wwwroot\images\icon.svg
+wwwroot\images\info 1.jpg
+wwwroot\images\line-md_phone-filled.jpg
+wwwroot\images\logo.jpg
+wwwroot\images\mdi_whatsapp.jpg
+wwwroot\images\message icon.jpg
+wwwroot\images\phone icon.jpg
+wwwroot\images\search icon.jpg
+wwwroot\images\star.svg
+wwwroot\images\twitter.jpg
+wwwroot\images\why us images.jpg
+wwwroot\images\why us images.svg
+wwwroot\images\workout 1.jpg
+wwwroot\images\workout 2.jpg
+wwwroot\images\workout 3.jpg
+wwwroot\images\x-circle 1.jpg
+wwwroot\js\site.js
+wwwroot\lib\bootstrap\LICENSE
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+wwwroot\lib\jquery-validation\LICENSE.md
+wwwroot\lib\jquery-validation\dist\additional-methods.js
+wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+wwwroot\lib\jquery-validation\dist\jquery.validate.js
+wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+wwwroot\lib\jquery\LICENSE.txt
+wwwroot\lib\jquery\dist\jquery.js
+wwwroot\lib\jquery\dist\jquery.min.js
+wwwroot\lib\jquery\dist\jquery.min.map
+wwwroot\lib\jquery\dist\jquery.slim.js
+wwwroot\lib\jquery\dist\jquery.slim.min.js
+wwwroot\lib\jquery\dist\jquery.slim.min.map

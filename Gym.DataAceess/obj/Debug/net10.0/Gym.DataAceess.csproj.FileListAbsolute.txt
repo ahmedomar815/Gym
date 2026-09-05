@@ -1,0 +1,12 @@
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.AssemblyInfoInputs.cache
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.AssemblyInfo.cs
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.csproj.CoreCompileInputs.cache
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.csproj.AssemblyReference.cache
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\bin\Debug\net10.0\Gym.DataAceess.deps.json
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\bin\Debug\net10.0\Gym.DataAceess.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\bin\Debug\net10.0\Gym.DataAceess.pdb
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\refint\Gym.DataAceess.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.pdb
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\ref\Gym.DataAceess.dll
