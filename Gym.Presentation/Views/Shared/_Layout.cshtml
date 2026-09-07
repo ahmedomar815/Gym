@@ -25,9 +25,10 @@
 <body>
     <partial name="_Header.cshtml" />
 
-    <div>
+    <main role="main" class="pb-3">
         @RenderBody()
-    </div>
+    </main>
+       @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-<script src="~/js/bootstrap.bundle.min.js"></script>
+

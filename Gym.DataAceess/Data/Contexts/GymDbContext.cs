@@ -11,7 +11,7 @@ public class GymDbContext(DbContextOptions<GymDbContext> options) :DbContext(opt
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(GymDbContext).Assembly);
 
-        modelBuilder.Entity<User>().OwnsOne(user => user.Address);
+      
     }
 
     public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -57,12 +57,7 @@ public class GymDbContext(DbContextOptions<GymDbContext> options) :DbContext(opt
                 case EntityState.Modified:
                     entry.Entity.LastUpdatedAt = now;
                     break;
-                case EntityState.Deleted:
-                    entry.State = EntityState.Modified;
-                    entry.Entity.IsDeleted = true;
-                    entry.Entity.DeletedAt = now;
-
-                    break;
+               
             }
         }
     }

@@ -1,35 +1,62 @@
 using Gym.DataAccess.Data.Contexts;
+using Gym.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Gym.DataAccess.Repositories;
 
-public class Repository<T>(GymDbContext context) : IRepository<T> where T : class
+public class Repository<T>(GymDbContext context) : IRepository<T> where T : BaseEntity
 {
-    private readonly DbSet<T> _entities = context.Set<T>();
+    private readonly DbSet<T> _dbSet = context.Set<T>();
 
     public async Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await _entities.AsNoTracking().ToListAsync(cancellationToken);
+        return await _dbSet    
+            .ToListAsync(cancellationToken);
     }
 
     public Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        return _entities.AsNoTracking()
-            .FirstOrDefaultAsync(entity => EF.Property<int>(entity, "Id") == id, cancellationToken);
+        return _dbSet  
+            .FirstOrDefaultAsync(entity => entity.Id == id ,cancellationToken);
+    }
+
+    public Task<T?> GetDeletedByIdAsync(int id, CancellationToken cancellationToken = default)
+    {
+        return _dbSet
+            .IgnoreQueryFilters()
+            .FirstOrDefaultAsync(entity => entity.Id == id && entity.IsDeleted, cancellationToken);
+    }
+
+    public async Task AddAsync(T entity, CancellationToken cancellationToken = default)
+    {
+        await _dbSet.AddAsync(entity, cancellationToken);
+    }
+
+    public Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+    {
+        return _dbSet.AddRangeAsync(entities, cancellationToken);
     }
 
     public void Update(T entity)
     {
-        _entities.Update(entity);
+        _dbSet.Update(entity);
     }
 
     public void Delete(T entity)
     {
-        _entities.Remove(entity);
+        entity.IsDeleted = true;
+        entity.DeletedAt = DateTime.UtcNow;
+        _dbSet.Update(entity);
     }
 
     public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         return context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task<bool> ExistAsync(  Expression<Func<T, bool>> predicate,CancellationToken cancellationToken = default)
+    {
+        return await _dbSet.AnyAsync(predicate, cancellationToken);
     }
 }

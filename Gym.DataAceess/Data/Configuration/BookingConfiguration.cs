@@ -13,6 +13,12 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
             .HasForeignKey(booking => booking.SessionId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasIndex(booking => new { booking.MemberId, booking.SessionId }).IsUnique();
+        builder.HasIndex(booking => new
+        {
+            booking.MemberId,
+            booking.SessionId
+        })
+         .IsUnique()
+         .HasFilter("[IsDeleted] = 0");
     }
 }

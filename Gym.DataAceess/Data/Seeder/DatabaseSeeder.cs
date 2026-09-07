@@ -7,5 +7,6 @@ public static class DatabaseSeeder
     public static async Task SeedAllAsync(GymDbContext dbContext)
     {
         await PlanSeeder.SeedAsync(dbContext);
+        await MemberSeeder.SeedAsync(dbContext);
     }
 }

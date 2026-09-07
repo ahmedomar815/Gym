@@ -13,3 +13,4 @@ C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\obj\Debug\net10.0\Gym.BusinessLog
 C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\bin\Debug\net10.0\Gym.DataAceess.dll
 C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\bin\Debug\net10.0\Gym.DataAceess.pdb
 C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\obj\Debug\net10.0\Gym.Busi.25BFCCDF.Up2Date
+C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\obj\Debug\net10.0\Gym.BusinessLogic.sourcelink.json

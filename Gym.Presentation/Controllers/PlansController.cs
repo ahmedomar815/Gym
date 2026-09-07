@@ -1,27 +1,36 @@
-using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
+using Gym.BusinessLogic.Services;
+using Gym.BusinessLogic.DTOs;
+using Gym.Presentation.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers;
 
-public class PlansController(IRepository<Plan> planRepository) : Controller
+public class PlansController(IPlanService planService) : Controller
 {
-    private readonly IRepository<Plan> _planRepository = planRepository;
-
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
-        var plans = await _planRepository.GetAllAsync();
-        return View(plans);
+        var plans = await planService.GetAllAsync(cancellationToken);
+        return View(plans.Select(ToViewModel).ToList());
     }
 
-    public async Task<IActionResult> Details(int id)
+    public async Task<IActionResult> Details(int id, CancellationToken cancellationToken)
     {
-        var plan = await _planRepository.GetByIdAsync(id);
+        var plan = await planService.GetByIdAsync(id, cancellationToken);
         if (plan == null)
         {
             return RedirectToAction(nameof(Index));
         }
 
-        return View(plan);
+        return View(ToViewModel(plan));
     }
+
+    private static PlanViewModel ToViewModel(PlanDto plan) => new()
+    {
+        Id = plan.Id,
+        Name = plan.Name,
+        Description = plan.Description,
+        DurationInDays = plan.DurationInDays,
+        Price = plan.Price,
+        IsActive = plan.IsActive
+    };
 }

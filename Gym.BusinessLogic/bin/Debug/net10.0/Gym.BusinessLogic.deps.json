@@ -535,7 +535,6 @@
       "Gym.DataAceess/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.11",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.11"
         },
         "runtime": {

@@ -1,5 +1,6 @@
 using Gym.DataAccess.Data.Contexts;
 using Gym.DataAccess.Repositories;
+using Gym.DataAceess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,8 @@ public static class DependencyInjectionExtensions
                 "Connection string 'DefaultConnection' was not found.");
 
         services.AddDbContext<GymDbContext>(options => options.UseSqlServer(connectionString));
+        services.AddScoped<IPlanRepository, PlanRepository>();
+        services.AddScoped<IMemberRepository, MemberRepository>();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
         return services;
