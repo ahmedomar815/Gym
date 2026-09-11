@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Gym.DataAccess.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 
 public class HealthRecordViewModel
 {
@@ -9,7 +10,7 @@ public class HealthRecordViewModel
     public decimal Weight { get; set; }
 
     [Required(ErrorMessage = "Blood Type Is Required")]
-    [StringLength(3, ErrorMessage = "Blood type must be 3 characters or less")]
-    public string BloodType { get; set; } = default!;
+
+    public BloodType BloodType { get; set; } = default!;
     public string? Note { get; set; } = default!;
 }

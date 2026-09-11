@@ -127,6 +127,9 @@ namespace Gym.DataAceess.Data.Migrations
                     b.Property<int>("MemberId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("WeightInKilograms")
                         .HasPrecision(5, 2)
                         .HasColumnType("decimal(5,2)");
@@ -153,11 +156,8 @@ namespace Gym.DataAceess.Data.Migrations
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -313,11 +313,6 @@ namespace Gym.DataAceess.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
@@ -327,13 +322,13 @@ namespace Gym.DataAceess.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<DateTime?>("LastUpdatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -458,6 +453,9 @@ namespace Gym.DataAceess.Data.Migrations
                     b.OwnsOne("Gym.DataAccess.Models.Address", "Address", b1 =>
                         {
                             b1.Property<int>("UserId")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("BuidingNumber")
                                 .HasColumnType("int");
 
                             b1.Property<string>("City")

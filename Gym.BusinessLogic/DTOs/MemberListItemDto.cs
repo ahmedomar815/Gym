@@ -6,7 +6,7 @@ public sealed class MemberListItemDto
 
     public string? PhotoUrl { get; init; }
 
-    public string FirstName { get; init; } = string.Empty;
+    public string Name { get; init; } = string.Empty;
 
     public string Email { get; init; } = string.Empty;
 

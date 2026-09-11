@@ -2,7 +2,7 @@ namespace Gym.DataAccess.Models.Enums;
 
 public enum BloodType
 {
-    Unknown = 0,
+    
     APositive,
     ANegative,
     BPositive,

@@ -1,4 +1,5 @@
 using Gym.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Gym.DataAccess.Repositories;
@@ -15,7 +16,7 @@ public interface IRepository<T> where T : BaseEntity
 
     Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default);
     Task<bool>ExistAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default);
-    
+    Task<T?>GetByIdIncludingAsync(int id, CancellationToken cancellationToken = default,params Expression<Func<T, Object>>[]includes);
     void Update(T entity);
 
     void Delete(T entity);
