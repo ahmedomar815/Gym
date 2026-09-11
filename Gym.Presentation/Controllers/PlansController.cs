@@ -1,7 +1,7 @@
 using Gym.BusinessLogic.Services;
-using Gym.BusinessLogic.DTOs;
-using Gym.Presentation.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Gym.Presentation.ViewModels.Plans;
+using Gym.BusinessLogic.DTOs.Plans;
 
 namespace Presentation.Controllers;
 

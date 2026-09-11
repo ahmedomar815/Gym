@@ -1,4 +1,4 @@
-using Gym.BusinessLogic.DTOs;
+using Gym.BusinessLogic.DTOs.Members;
 using Gym.BusinessLogic.Results;
 
 namespace Gym.BusinessLogic.Services;
@@ -9,5 +9,9 @@ public interface IMemberService
 
     Task<MemberDetailsDto?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
 
+    Task<EditMemberDto?> GetForEditAsync(int id, CancellationToken cancellationToken = default);
+
     Task<Result> CreateAsync(CreateMemberDto createMemberDto, CancellationToken cancellationToken = default);
+
+    Task<Result> UpdateAsync(int id,EditMemberDto model, CancellationToken cancellationToken = default);
 }

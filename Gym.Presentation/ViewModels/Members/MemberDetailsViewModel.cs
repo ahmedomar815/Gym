@@ -1,4 +1,4 @@
-namespace Gym.Presentation.ViewModels;
+namespace Gym.Presentation.ViewModels.Members;
 
 public sealed class MemberDetailsViewModel
 {

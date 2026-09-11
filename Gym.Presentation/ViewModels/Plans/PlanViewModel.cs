@@ -1,6 +1,6 @@
-namespace Gym.BusinessLogic.DTOs;
+namespace Gym.Presentation.ViewModels.Plans;
 
-public sealed class PlanDto
+public sealed class PlanViewModel
 {
     public int Id { get; init; }
 

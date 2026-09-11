@@ -1,10 +1,9 @@
-using Gym.BusinessLogic.DTOs;
+using Gym.BusinessLogic.DTOs.Members;
 using Gym.BusinessLogic.Results;
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Models.Enums;
-using Gym.DataAccess.Repositories;
+
 using Gym.DataAceess.Repositories;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 
 namespace Gym.BusinessLogic.Services;
 
@@ -13,7 +12,15 @@ internal sealed class MemberService(IMemberRepository memberRepository) : IMembe
     public async Task<IReadOnlyList<MemberListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
         var members = await memberRepository.GetAllAsync(cancellationToken);
-        return members.Select(ToDto).ToList();
+        return members.Select(member => new MemberListItemDto
+        {
+            Id = member.Id,
+            PhotoUrl = member.PhotoUrl,
+            Name = member.Name,
+            Email = member.Email,
+            Gender = member.Gender.ToString(),
+            PhoneNumber = member.PhoneNumber
+        }).ToList();
     }
 
     public async Task<MemberDetailsDto?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
@@ -46,6 +53,27 @@ internal sealed class MemberService(IMemberRepository memberRepository) : IMembe
             MembershipEndDate = membership is null
                 ? null
                 : DateOnly.FromDateTime(membership.EndDate)
+        };
+    }
+
+    public async Task<EditMemberDto?> GetForEditAsync(int id, CancellationToken cancellationToken = default)
+    {
+        var member = await memberRepository.GetByIdAsync(id, cancellationToken);
+        if (member is null)
+        {
+            return null;
+        }
+
+        return new EditMemberDto
+        {
+           
+            Name = member.Name,
+            Email = member.Email,
+            Phone = member.PhoneNumber,
+            BuildingNumber = member.Address.BuidingNumber,
+            City = member.Address.City,
+            Street = member.Address.Street,
+            PhotoUrl = member.PhotoUrl
         };
     }
 
@@ -98,14 +126,49 @@ internal sealed class MemberService(IMemberRepository memberRepository) : IMembe
         return Result.Success();
     }
 
-    private static MemberListItemDto ToDto(Member member) => new()
+    public async Task<Result> UpdateAsync(int id,EditMemberDto model, CancellationToken cancellationToken = default)
     {
-        Id = member.Id,
-        PhotoUrl = member.PhotoUrl,
-        Name = member.Name,
-        Email = member.Email,
-        Gender = member.Gender.ToString(),
-        PhoneNumber = member.PhoneNumber
-    };
+        var member = await memberRepository.GetByIdAsync(id, cancellationToken);
+        if (member is null)
+        {
+            return Result.Failure(new Error(
+                nameof(id),
+                "Member not found."));
+        }
+
+        var email = model.Email.Trim().ToLower();
+        var phoneNumber = model.Phone.Trim();
+        if(model.Name != member.Name)
+        {
+            return Result.Failure(new Error(
+               nameof(model.Name),
+               "This Name is Changed"));
+        }
+        if (await memberRepository.IsPhoneTakenAsync(phoneNumber, cancellationToken, id))
+        {
+            return Result.Failure(new Error(
+                nameof(model.Phone),
+                "A member with this phone number already exists."));
+        }
+
+        if (await memberRepository.IsEmailTakenAsync(email, cancellationToken, id))
+        {
+            return Result.Failure(new Error(
+                nameof(model.Email),
+                "A member with this email address already exists."));
+        }
+
+        member.Name = model.Name.Trim();
+        member.Email = email;
+        member.PhoneNumber = phoneNumber;
+        member.PhotoUrl = model.PhotoUrl;
+        member.Address.BuidingNumber = model.BuildingNumber;
+        member.Address.City = model.City.Trim();
+        member.Address.Street = model.Street.Trim();
+
+        memberRepository.Update(member);
+        await memberRepository.SaveChangesAsync(cancellationToken);
+        return Result.Success();
+    }
 
 }

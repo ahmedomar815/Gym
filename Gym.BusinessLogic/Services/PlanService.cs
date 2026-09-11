@@ -1,4 +1,4 @@
-using Gym.BusinessLogic.DTOs;
+using Gym.BusinessLogic.DTOs.Plans;
 using Gym.DataAccess.Models;
 using Gym.DataAccess.Repositories;
 

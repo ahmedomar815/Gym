@@ -1,4 +1,4 @@
-using Gym.BusinessLogic.DTOs;
+using Gym.BusinessLogic.DTOs.Plans;
 
 namespace Gym.BusinessLogic.Services;
 

@@ -9,6 +9,7 @@ public static class DependencyInjectionExtensions
     {
         services.AddScoped<IPlanService, PlanService>();
         services.AddScoped<IMemberService, MemberService>();
+        services.AddScoped<IHealthRecordService, HealthRecordService>();
         return services;
     }
 }

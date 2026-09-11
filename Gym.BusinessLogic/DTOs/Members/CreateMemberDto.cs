@@ -1,6 +1,6 @@
 using Gym.DataAccess.Models.Enums;
 
-namespace Gym.BusinessLogic.DTOs;
+namespace Gym.BusinessLogic.DTOs.Members;
 
 public sealed class CreateMemberDto
 {

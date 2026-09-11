@@ -24,10 +24,14 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-using (var scope = app.Services.CreateScope())
-{
-    var gymDbContext = scope.ServiceProvider.GetRequiredService<GymDbContext>();
-    await DatabaseSeeder.SeedAllAsync(gymDbContext);
-}
 
+
+if (app.Environment.IsDevelopment())
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var gymDbContext = scope.ServiceProvider.GetRequiredService<GymDbContext>();
+        await DatabaseSeeder.SeedAllAsync(gymDbContext);
+    }
+}
 app.Run();

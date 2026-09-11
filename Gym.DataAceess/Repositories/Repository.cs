@@ -20,6 +20,14 @@ public class Repository<T>(GymDbContext context) : IRepository<T> where T : Base
         return _dbSet  
             .FirstOrDefaultAsync(entity => entity.Id == id ,cancellationToken);
     }
+
+    public Task<T?> FindAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
+    {
+        return _dbSet
+            .AsNoTracking()
+            .FirstOrDefaultAsync(predicate, cancellationToken);
+    }
+
     public async Task<T?> GetByIdIncludingAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes)
     {
         IQueryable<T> query = _dbSet;
