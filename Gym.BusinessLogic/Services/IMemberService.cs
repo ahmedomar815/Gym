@@ -14,4 +14,5 @@ public interface IMemberService
     Task<Result> CreateAsync(CreateMemberDto createMemberDto, CancellationToken cancellationToken = default);
 
     Task<Result> UpdateAsync(int id,EditMemberDto model, CancellationToken cancellationToken = default);
+    Task<Result> DeleteAsync(int id, CancellationToken cancellationToken = default);
 }

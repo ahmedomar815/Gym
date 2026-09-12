@@ -171,4 +171,34 @@ public class MembersController(
         TempData["SuccessMessage"] = "Member created successfully.";
         return RedirectToAction(nameof(Index));
     }
+
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [ActionName("Delete")]
+    public async Task<IActionResult> DeleteConfirmation(int id, CancellationToken cancellationToken)
+    {
+        var result = await memberService.DeleteAsync(id, cancellationToken);
+        if (result.IsFailure)
+        {
+            TempData["ErrorMessage"] = result.Error.Description;
+            return RedirectToAction(nameof(Index));
+        }
+        TempData["SuccessMessage"] = "Member deleted successfully.";
+        return RedirectToAction(nameof(Index));
+
+    }
+
+    public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
+    {
+        var member = await memberService.GetByIdAsync(id, cancellationToken);
+        if (member is null)
+        {
+            return NotFound();
+        }
+        ViewBag.id = id;
+        return View("DeleteMember");
+    }
+
+
 }

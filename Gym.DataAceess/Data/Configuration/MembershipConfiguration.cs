@@ -8,6 +8,8 @@ public class MembershipConfiguration : IEntityTypeConfiguration<Membership>
 {
     public void Configure(EntityTypeBuilder<Membership> builder)
     {
+        builder.HasQueryFilter(membership => !membership.Member.IsDeleted);
+
         builder.HasOne(membership => membership.Plan)
             .WithMany(plan => plan.Memberships)
             .HasForeignKey(membership => membership.PlanId)

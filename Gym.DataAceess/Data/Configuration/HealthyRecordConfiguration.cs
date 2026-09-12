@@ -8,6 +8,8 @@ public class HealthyRecordConfiguration : IEntityTypeConfiguration<HealthyRecord
 {
     public void Configure(EntityTypeBuilder<HealthyRecord> builder)
     {
+        builder.HasQueryFilter(record => !record.Member.IsDeleted);
+
         builder.Property(record => record.HeightInCentimeters).HasPrecision(5, 2);
         builder.Property(record => record.WeightInKilograms).HasPrecision(5, 2);
   

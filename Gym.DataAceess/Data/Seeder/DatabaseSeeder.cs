@@ -9,5 +9,6 @@ public static class DatabaseSeeder
         await PlanSeeder.SeedAsync(dbContext);
         await MemberSeeder.SeedAsync(dbContext);
         await MembershipSeeder.SeedAsync(dbContext);
+        await SessionSeeder.SeedAsync(dbContext);
     }
 }

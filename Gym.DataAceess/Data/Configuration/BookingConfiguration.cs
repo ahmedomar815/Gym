@@ -8,6 +8,8 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
 {
     public void Configure(EntityTypeBuilder<Booking> builder)
     {
+        builder.HasQueryFilter(booking => !booking.Member.IsDeleted);
+
         builder.HasOne(booking => booking.Session)
             .WithMany(session => session.Bookings)
             .HasForeignKey(booking => booking.SessionId)

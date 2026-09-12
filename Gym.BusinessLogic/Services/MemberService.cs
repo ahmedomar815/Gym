@@ -1,13 +1,14 @@
 using Gym.BusinessLogic.DTOs.Members;
 using Gym.BusinessLogic.Results;
+using Gym.DataAccess.Data.Configuration;
 using Gym.DataAccess.Models;
-
+using Gym.DataAccess.Repositories;
 using Gym.DataAceess.Repositories;
 
 
 namespace Gym.BusinessLogic.Services;
 
-internal sealed class MemberService(IMemberRepository memberRepository) : IMemberService
+internal sealed class MemberService(IMemberRepository memberRepository ,IRepository<HealthyRecord> healthRepository) : IMemberService
 {
     public async Task<IReadOnlyList<MemberListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
@@ -170,5 +171,21 @@ internal sealed class MemberService(IMemberRepository memberRepository) : IMembe
         await memberRepository.SaveChangesAsync(cancellationToken);
         return Result.Success();
     }
+
+    public async Task<Result> DeleteAsync(int id, CancellationToken cancellationToken = default)
+    {
+        var member = await memberRepository.GetByIdAsync(id,   cancellationToken );
+        var healthRecord = await healthRepository.GetByIdAsync(id, cancellationToken);
+        if (member is null)
+        {
+            return null!;
+        }
+
+        memberRepository.Delete(member);
+        healthRepository.Delete(healthRecord!);
+        await memberRepository.SaveChangesAsync(cancellationToken);
+        return Result.Success();
+    }
+
 
 }

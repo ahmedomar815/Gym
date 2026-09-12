@@ -8,6 +8,8 @@ public class SessionConfiguration : IEntityTypeConfiguration<Session>
 {
     public void Configure(EntityTypeBuilder<Session> builder)
     {
+        builder.HasQueryFilter(session => !session.Trainer.IsDeleted);
+
         builder.Property(session => session.Description).HasMaxLength(100);
 
         builder.HasOne(session => session.Trainer)

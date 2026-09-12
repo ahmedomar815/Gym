@@ -19,11 +19,18 @@ internal class MemberRepository(GymDbContext context) : Repository<Member>(conte
         return await _context.Members.AnyAsync(m => m.PhoneNumber== phone&&(!id.HasValue||m.Id!=id ), cancellationToken);
     }
 
-    public Task<Member?> GetByIdWithMembershipsAndPlanAsync(int id, CancellationToken cancellationToken = default)
+    public async Task<Member?> GetByIdWithMembershipsAndPlanAsync(int id, CancellationToken cancellationToken = default)
     {
-        return _context.Members
+        return await _context.Members
             .Include(member => member.Memberships)
             .ThenInclude(membership => membership.Plan)
             .FirstOrDefaultAsync(member => member.Id == id, cancellationToken);
     }
+
+    public Task<bool> HasBookingSessionsAsync( int id, CancellationToken cancellationToken = default)
+    {
+        return _context.Members.Where(m => m.Id == id).SelectMany(m => m.Bookings).Where(b=>b.Session.StartTime>DateTime.Today).AnyAsync(cancellationToken);
+    }
+
+
 }

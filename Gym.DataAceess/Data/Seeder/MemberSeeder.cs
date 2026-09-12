@@ -9,9 +9,6 @@ public static class MemberSeeder
 {
     public static async Task SeedAsync(GymDbContext gymDbContext)
     {
-        if (await gymDbContext.Members.AnyAsync())
-            return;
-
         var members = new List<Member>
         {
             new Member
@@ -98,10 +95,73 @@ public static class MemberSeeder
                     WeightInKilograms = 80m,
                     BloodType = BloodType.ONegative
                 }
+            },
+            new Member
+            {
+                Name = "Ahmed 92",
+                DateOfBirth = new DateOnly(1994, 8, 19),
+                Email = "ahmed92@gmail.com",
+                PhoneNumber = "+201512345678",
+                Gender = Gender.Male,
+                Address = new Address { City = "Cairo", Street = "92 El-Nasr Street" },
+                IsActive = true,
+                JoinDate = new DateTime(2026, 6, 1),
+                HealthyRecord = new HealthyRecord
+                {
+                    HeightInCentimeters = 176m,
+                    WeightInKilograms = 78m,
+                    BloodType = BloodType.APositive
+                }
+            },
+            new Member
+            {
+                Name = "Ahmed 43",
+                DateOfBirth = new DateOnly(1997, 3, 14),
+                Email = "ahmed43@gmail.com",
+                PhoneNumber = "+201612345678",
+                Gender = Gender.Male,
+                Address = new Address { City = "Giza", Street = "43 El-Haram Street" },
+                IsActive = true,
+                JoinDate = new DateTime(2026, 6, 15),
+                HealthyRecord = new HealthyRecord
+                {
+                    HeightInCentimeters = 180m,
+                    WeightInKilograms = 82m,
+                    BloodType = BloodType.BPositive
+                }
+            },
+            new Member
+            {
+                Name = "Ahmed 1",
+                DateOfBirth = new DateOnly(1996, 1, 21),
+                Email = "ahmed1@gmail.com",
+                PhoneNumber = "+201812345678",
+                Gender = Gender.Male,
+                Address = new Address { City = "Cairo", Street = "1 El-Gym Street" },
+                IsActive = true,
+                JoinDate = new DateTime(2026, 7, 1),
+                HealthyRecord = new HealthyRecord
+                {
+                    HeightInCentimeters = 174m,
+                    WeightInKilograms = 75m,
+                    BloodType = BloodType.OPositive
+                }
             }
         };
 
-        await gymDbContext.Members.AddRangeAsync(members);
+        var existingEmails = await gymDbContext.Members
+            .IgnoreQueryFilters()
+            .Select(member => member.Email)
+            .ToListAsync();
+
+        var newMembers = members
+            .Where(member => !existingEmails.Contains(member.Email))
+            .ToList();
+
+        if (newMembers.Count == 0)
+            return;
+
+        await gymDbContext.Members.AddRangeAsync(newMembers);
         await gymDbContext.SaveChangesAsync();
     }
 }

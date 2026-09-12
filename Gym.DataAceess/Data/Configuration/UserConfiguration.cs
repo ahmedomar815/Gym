@@ -10,6 +10,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         builder.UseTphMappingStrategy();
 
+        builder.HasQueryFilter(user => !user.IsDeleted);
+
         builder.HasDiscriminator<string>("Type")
             .HasValue<Member>("Member")
             .HasValue<Trainer>("Trainer");
