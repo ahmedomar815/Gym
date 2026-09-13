@@ -21,7 +21,7 @@ public class CreateMemberViewModel
 
     [Required(ErrorMessage = "Date of Birth is required")]
     [DataType(DataType.Date)]
-    public DateOnly DateOfBirth { get; set; }
+    public DateTime DateOfBirth { get; set; }
 
     [Required(ErrorMessage = "Gender is required")]
     public Gender Gender { get; set; }

@@ -14,13 +14,13 @@ public sealed class MemberDetailsViewModel
 
     public string Gender { get; init; } = string.Empty;
 
-    public DateOnly DateOfBirth { get; init; }
+    public DateTime DateOfBirth { get; init; }
 
     public string Address { get; init; } = string.Empty;
 
     public string? PlanName { get; init; }
 
-    public DateOnly? MembershipStartDate { get; init; }
+    public DateTime? MembershipStartDate { get; init; }
 
-    public DateOnly? MembershipEndDate { get; init; }
+    public DateTime? MembershipEndDate { get; init; }
 }

@@ -27,10 +27,4 @@ internal class MemberRepository(GymDbContext context) : Repository<Member>(conte
             .FirstOrDefaultAsync(member => member.Id == id, cancellationToken);
     }
 
-    public Task<bool> HasBookingSessionsAsync( int id, CancellationToken cancellationToken = default)
-    {
-        return _context.Members.Where(m => m.Id == id).SelectMany(m => m.Bookings).Where(b=>b.Session.StartTime>DateTime.Today).AnyAsync(cancellationToken);
-    }
-
-
 }

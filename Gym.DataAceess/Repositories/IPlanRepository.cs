@@ -6,6 +6,6 @@ using System.Text;
 
 namespace Gym.DataAceess.Repositories;
 
-internal interface IPlanRepository:IRepository<Plan>
+public interface IPlanRepository:IRepository<Plan>
 {
 }

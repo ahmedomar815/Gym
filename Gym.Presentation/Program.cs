@@ -1,7 +1,5 @@
 using Gym.DataAccess.Data.Contexts;
 using Gym.DataAccess.Data.Seeder;
-using Gym.BusinessLogic;
-using Gym.DataAccess;
 using Presentation;
 
 var builder = WebApplication.CreateBuilder(args);

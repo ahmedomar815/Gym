@@ -169,7 +169,6 @@ C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\a6wjx
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\tl16h5zdi0-{0}-lugek5hnai-lugek5hnai.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\ix8h6t3t9r-{0}-e8g7nh56kj-e8g7nh56kj.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\0cmbuehstd-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\4ooopaekxz-{0}-gk6je6itwo-gk6je6itwo.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\jdkunfxu78-{0}-ra89dd10vu-ra89dd10vu.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\p0ejhu3iyb-{0}-7y25oh2dzs-7y25oh2dzs.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\nigmwidcbo-{0}-fr7q2aak1r-fr7q2aak1r.gz
@@ -239,4 +238,5 @@ C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\4ooopaekxz-{0}-ou1mk8im0n-ou1mk8im0n.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

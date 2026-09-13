@@ -20,7 +20,9 @@ public static class DependencyInjectionExtensions
         services.AddDbContext<GymDbContext>(options => options.UseSqlServer(connectionString));
         services.AddScoped<IPlanRepository, PlanRepository>();
         services.AddScoped<IMemberRepository, MemberRepository>();
+        services.AddScoped<ISessionRepository, SessionRepository>();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }

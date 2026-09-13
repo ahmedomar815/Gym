@@ -4,6 +4,7 @@ using Gym.DataAccess.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Gym.Presentation.ViewModels.Members;
 using Gym.BusinessLogic.DTOs.Members;
+using Gym.Presentation.Extensions;
 
 namespace Gym.Presentation.Controllers;
 
@@ -107,7 +108,7 @@ public class MembersController(
         var result = await memberService.UpdateAsync(id, dto, cancellationToken);
         if (result.IsFailure)
         {
-            ModelState.AddModelError(result.Error.Code, result.Error.Description);
+            result.AddToModelState(ModelState);
             return View("EditMember", model);
         }
 
@@ -164,7 +165,7 @@ public class MembersController(
         if (result.IsFailure)
         {
             TempData["ErrorMessage"] = result.Error.Description;
-            ModelState.AddModelError(result.Error.Code, result.Error.Description);
+            result.AddToModelState(ModelState);
             return View(model);
         }
 

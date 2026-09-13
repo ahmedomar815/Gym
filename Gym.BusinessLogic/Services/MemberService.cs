@@ -1,6 +1,5 @@
 using Gym.BusinessLogic.DTOs.Members;
 using Gym.BusinessLogic.Results;
-using Gym.DataAccess.Data.Configuration;
 using Gym.DataAccess.Models;
 using Gym.DataAccess.Repositories;
 using Gym.DataAceess.Repositories;
@@ -8,11 +7,13 @@ using Gym.DataAceess.Repositories;
 
 namespace Gym.BusinessLogic.Services;
 
-internal sealed class MemberService(IMemberRepository memberRepository ,IRepository<HealthyRecord> healthRepository) : IMemberService
+internal sealed class MemberService(IUnitOfWork UniteOfWork, IBookingService bookingService) : IMemberService
 {
+    private readonly IUnitOfWork _uniteOfWork = UniteOfWork;
+
     public async Task<IReadOnlyList<MemberListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        var members = await memberRepository.GetAllAsync(cancellationToken);
+        var members = await _uniteOfWork.Members.GetAllAsync(cancellationToken);
         return members.Select(member => new MemberListItemDto
         {
             Id = member.Id,
@@ -26,7 +27,7 @@ internal sealed class MemberService(IMemberRepository memberRepository ,IReposit
 
     public async Task<MemberDetailsDto?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        var member = await memberRepository.GetByIdWithMembershipsAndPlanAsync(id, cancellationToken);
+        var member = await _uniteOfWork.Members.GetByIdWithMembershipsAndPlanAsync(id, cancellationToken);
         if (member is null)
         {
             return null;
@@ -48,18 +49,14 @@ internal sealed class MemberService(IMemberRepository memberRepository ,IReposit
             DateOfBirth = member.DateOfBirth,
             Address = $"{member.Address.BuidingNumber} {member.Address.Street}, {member.Address.City}".Trim(),
             PlanName = membership?.Plan.Name ?? string.Empty,
-            MembershipStartDate = membership is null
-                ? null
-                : DateOnly.FromDateTime(membership.StartDate),
-            MembershipEndDate = membership is null
-                ? null
-                : DateOnly.FromDateTime(membership.EndDate)
+            MembershipStartDate = membership?.StartDate,
+            MembershipEndDate = membership?.EndDate
         };
     }
 
     public async Task<EditMemberDto?> GetForEditAsync(int id, CancellationToken cancellationToken = default)
     {
-        var member = await memberRepository.GetByIdAsync(id, cancellationToken);
+        var member = await _uniteOfWork.Members.GetByIdAsync(id, cancellationToken);
         if (member is null)
         {
             return null;
@@ -85,16 +82,16 @@ internal sealed class MemberService(IMemberRepository memberRepository ,IReposit
         var email = model.Email.Trim().ToLower();
         var phoneNumber = model.Phone.Trim();
 
-        if (await memberRepository.IsEmailTakenAsync(model.Email,cancellationToken))
+        if (await _uniteOfWork.Members.IsEmailTakenAsync(email, cancellationToken))
         {
-            return Result.Failure(new Error(
+            return Result.Failure(Error.Conflict(
                nameof(model.Email),
                 "A member with this email address already exists."));
         }
 
-        if (await memberRepository.IsPhoneTakenAsync(model.Phone, cancellationToken))
+        if (await _uniteOfWork.Members.IsPhoneTakenAsync(phoneNumber, cancellationToken))
         {
-            return Result.Failure(new Error(
+            return Result.Failure(Error.Conflict(
                  nameof(model.Phone),
                 "A member with this phone number already exists."));
         }
@@ -122,17 +119,17 @@ internal sealed class MemberService(IMemberRepository memberRepository ,IReposit
             }
         };
 
-        await memberRepository.AddAsync(member, cancellationToken);
-        await memberRepository.SaveChangesAsync(cancellationToken);
+        await _uniteOfWork.Members.AddAsync(member, cancellationToken);
+        await _uniteOfWork.CommitAsync(cancellationToken);
         return Result.Success();
     }
 
     public async Task<Result> UpdateAsync(int id,EditMemberDto model, CancellationToken cancellationToken = default)
     {
-        var member = await memberRepository.GetByIdAsync(id, cancellationToken);
+        var member = await _uniteOfWork.Members.GetByIdAsync(id, cancellationToken);
         if (member is null)
         {
-            return Result.Failure(new Error(
+            return Result.Failure(Error.NotFound(
                 nameof(id),
                 "Member not found."));
         }
@@ -141,20 +138,20 @@ internal sealed class MemberService(IMemberRepository memberRepository ,IReposit
         var phoneNumber = model.Phone.Trim();
         if(model.Name != member.Name)
         {
-            return Result.Failure(new Error(
+            return Result.Failure(Error.Validation(
                nameof(model.Name),
                "This Name is Changed"));
         }
-        if (await memberRepository.IsPhoneTakenAsync(phoneNumber, cancellationToken, id))
+        if (await _uniteOfWork.Members.IsPhoneTakenAsync(phoneNumber, cancellationToken, id))
         {
-            return Result.Failure(new Error(
+            return Result.Failure(Error.Conflict(
                 nameof(model.Phone),
                 "A member with this phone number already exists."));
         }
 
-        if (await memberRepository.IsEmailTakenAsync(email, cancellationToken, id))
+        if (await _uniteOfWork.Members.IsEmailTakenAsync(email, cancellationToken, id))
         {
-            return Result.Failure(new Error(
+            return Result.Failure(Error.Conflict(
                 nameof(model.Email),
                 "A member with this email address already exists."));
         }
@@ -167,23 +164,37 @@ internal sealed class MemberService(IMemberRepository memberRepository ,IReposit
         member.Address.City = model.City.Trim();
         member.Address.Street = model.Street.Trim();
 
-        memberRepository.Update(member);
-        await memberRepository.SaveChangesAsync(cancellationToken);
+        _uniteOfWork.Members.Update(member);
+        await _uniteOfWork.CommitAsync(cancellationToken);
         return Result.Success();
     }
 
     public async Task<Result> DeleteAsync(int id, CancellationToken cancellationToken = default)
     {
-        var member = await memberRepository.GetByIdAsync(id,   cancellationToken );
-        var healthRecord = await healthRepository.GetByIdAsync(id, cancellationToken);
+        var member = await _uniteOfWork.Members.GetByIdAsync(id,   cancellationToken );
+      
         if (member is null)
         {
-            return null!;
+            return Result.Failure(Error.NotFound(
+                nameof(id),
+                "Member not found."));
         }
 
-        memberRepository.Delete(member);
-        healthRepository.Delete(healthRecord!);
-        await memberRepository.SaveChangesAsync(cancellationToken);
+        if (await bookingService.HasBookingsForMemberAsync(id, cancellationToken))
+        {
+            return Result.Failure(Error.Conflict(
+                nameof(id),
+                "This member cannot be deleted because they have booked sessions."));
+        }
+
+        var healthRecord = await _uniteOfWork.HealthyRecords.FindAsync(
+          record => record.MemberId == id);
+
+         _uniteOfWork.Members.Delete(member);
+        _uniteOfWork.HealthyRecords.Delete(healthRecord!);
+
+
+        await _uniteOfWork.CommitAsync(cancellationToken);
         return Result.Success();
     }
 

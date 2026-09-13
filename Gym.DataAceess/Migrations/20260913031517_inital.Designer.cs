@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Gym.DataAceess.Data.Migrations
+namespace Gym.DataAceess.Migrations
 {
     [DbContext(typeof(GymDbContext))]
-    [Migration("20260908072628_update entity memebr")]
-    partial class updateentitymemebr
+    [Migration("20260913031517_inital")]
+    partial class inital
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -159,11 +159,8 @@ namespace Gym.DataAceess.Data.Migrations
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -308,8 +305,8 @@ namespace Gym.DataAceess.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateOnly>("DateOfBirth")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
@@ -459,6 +456,9 @@ namespace Gym.DataAceess.Data.Migrations
                     b.OwnsOne("Gym.DataAccess.Models.Address", "Address", b1 =>
                         {
                             b1.Property<int>("UserId")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("BuidingNumber")
                                 .HasColumnType("int");
 
                             b1.Property<string>("City")

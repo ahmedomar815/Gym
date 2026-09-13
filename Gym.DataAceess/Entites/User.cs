@@ -7,7 +7,7 @@ public class User : BaseEntity
     public string? PhotoUrl { get; set; }
     public string Name { get; set; } = default!;
 
-    public DateOnly DateOfBirth { get; set; }
+    public DateTime DateOfBirth { get; set; }
     public string Email { get; set; } = default!;
     public string PhoneNumber { get; set; } = default!;
     public Gender Gender { get; set; }

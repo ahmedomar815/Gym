@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Gym.DataAceess.Data.Migrations
+namespace Gym.DataAceess.Migrations
 {
     [DbContext(typeof(GymDbContext))]
     partial class GymDbContextModelSnapshot : ModelSnapshot
@@ -302,8 +302,8 @@ namespace Gym.DataAceess.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateOnly>("DateOfBirth")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
