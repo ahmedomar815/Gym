@@ -8,8 +8,8 @@ public  interface IUnitOfWork:IAsyncDisposable
   public IMemberRepository Members { get; }
     public IBookingRepository Bookings { get; }
     public ISessionRepository Sessions { get; }
-    public IRepository<Trainer> Trainers { get; }
-    public IRepository<Category> Categories { get; }
+    public ITrainerRepository Trainers { get; }
+    public ICategoryRepository Categories { get; }
     public  IPlanRepository Plans { get; }
     public IRepository<HealthyRecord> HealthyRecords {  get;  }
     Task<int> CommitAsync(CancellationToken cancellationToken);

@@ -12,9 +12,9 @@ internal sealed class UnitOfWork(GymDbContext context) : IUnitOfWork
     private IMemberRepository? _members;
     private IBookingRepository? _bookings;
     private ISessionRepository? _sessions;
-    private IRepository<Trainer>? _trainers;
+    private ITrainerRepository? _trainers;
     private IPlanRepository? _plans;
-    private IRepository<Category>? _categories;
+    private ICategoryRepository? _categories;
     private IRepository<HealthyRecord> ?_healthyRecords;
     private IDbContextTransaction? _transaction;
 
@@ -27,11 +27,11 @@ internal sealed class UnitOfWork(GymDbContext context) : IUnitOfWork
     public ISessionRepository Sessions
         => _sessions ??= new SessionRepository(_context);
 
-    public IRepository<Trainer> Trainers
-        => _trainers ??= new Repository<Trainer>(_context);
+    public ITrainerRepository Trainers
+        => _trainers ??= new TrainerRepository(_context);
 
-    public IRepository<Category> Categories
-        => _categories ??= new Repository<Category>(_context);
+    public ICategoryRepository Categories
+        => _categories ??= new CategoryRepository(_context);
 
     public IPlanRepository Plans
         => _plans ??= new PlanRepository(_context);

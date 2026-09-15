@@ -1,6 +1,7 @@
 using Gym.BusinessLogic.DTOs.Plans;
 using Gym.DataAccess.Models;
 using Gym.DataAccess.Repositories;
+using Mapster;
 
 namespace Gym.BusinessLogic.Services;
 
@@ -9,22 +10,13 @@ internal sealed class PlanService(IRepository<Plan> planRepository) : IPlanServi
     public async Task<IReadOnlyList<PlanDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
         var plans = await planRepository.GetAllAsync(cancellationToken);
-        return plans.Select(ToDto).ToList();
+        return plans.Adapt<List<PlanDto>>();
     }
 
     public async Task<PlanDto?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         var plan = await planRepository.GetByIdAsync(id, cancellationToken);
-        return plan is null ? null : ToDto(plan);
+        return plan?.Adapt<PlanDto>();
     }
 
-    private static PlanDto ToDto(Plan plan) => new()
-    {
-        Id = plan.Id,
-        Name = plan.Name,
-        Description = plan.Description,
-        DurationInDays = plan.DurationInDays,
-        Price = plan.Price,
-        IsActive = plan.IsActive
-    };
 }

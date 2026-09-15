@@ -5,5 +5,5 @@ namespace Gym.DataAceess.Repositories;
 
 public interface ISessionRepository : IRepository<Session>
 {
-  
+    Task<IReadOnlyList<Session>> GetAllWithDetailsAsync(CancellationToken cancellationToken = default);
 }

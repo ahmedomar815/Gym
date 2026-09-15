@@ -9,6 +9,12 @@ internal sealed class SessionRepository(GymDbContext context) : Repository<Sessi
 {
     private readonly GymDbContext _context = context;
 
-
-  
+    public async Task<IReadOnlyList<Session>> GetAllWithDetailsAsync(CancellationToken cancellationToken = default)
+    {
+        return await _context.Sessions
+            .Include(session => session.Trainer)
+            .Include(session => session.Category)
+            .Include(session => session.Bookings)
+            .ToListAsync(cancellationToken);
+    }
 }

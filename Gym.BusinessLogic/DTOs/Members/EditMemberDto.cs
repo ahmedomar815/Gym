@@ -2,7 +2,7 @@ namespace Gym.BusinessLogic.DTOs.Members;
 
 public sealed class EditMemberDto
 {
-  
+    public int Id { get; init; }
 
     public string Name { get; init; } = string.Empty;
 

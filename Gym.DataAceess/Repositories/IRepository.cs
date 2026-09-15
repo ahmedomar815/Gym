@@ -1,4 +1,5 @@
 using Gym.DataAccess.Models;
+using Gym.DataAceess.Specificaiton;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -9,6 +10,10 @@ public interface IRepository<T> where T : BaseEntity
     Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellationToken = default);
 
     Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+
+    Task<T?> GetEntityWithSpecificationAsync(
+        Specification<T> specification,
+        CancellationToken cancellationToken = default);
 
     Task<T?> FindAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default);
 

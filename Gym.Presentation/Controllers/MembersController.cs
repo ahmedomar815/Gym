@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Gym.Presentation.ViewModels.Members;
 using Gym.BusinessLogic.DTOs.Members;
 using Gym.Presentation.Extensions;
+using Mapster;
 
 namespace Gym.Presentation.Controllers;
 
@@ -15,15 +16,7 @@ public class MembersController(
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
         var members = await memberService.GetAllAsync(cancellationToken);
-        var viewModel = members.Select(member => new MemberListItemViewModel
-        {
-            Id = member.Id,
-            PhotoUrl = member.PhotoUrl,
-            FirstName = member.Name,
-            Email = member.Email,
-            Gender = member.Gender.ToString(),
-            PhoneNumber = member.PhoneNumber
-        }).ToList();
+        var viewModel = members.Adapt<List<MemberListItemViewModel>>();
 
         return View(viewModel);
     }
@@ -37,22 +30,7 @@ public class MembersController(
             return NotFound();
         }
 
-        var viewModel = new MemberDetailsViewModel
-        {
-            Id = member.Id,
-            Name = member.Name,
-            PhotoUrl = member.PhotoUrl,
-            Email = member.Email,
-            Phone = member.Phone,
-            Gender = member.Gender,
-            DateOfBirth = member.DateOfBirth,
-            Address = member.Address,
-            PlanName = member.PlanName,
-            MembershipStartDate = member.MembershipStartDate,
-            MembershipEndDate = member.MembershipEndDate
-        };
-
-        return View(viewModel);
+        return View(member.Adapt<MemberDetailsViewModel>());
     }
 
     [HttpGet]
@@ -70,19 +48,7 @@ public class MembersController(
             return NotFound();
         }
 
-        var viewModel = new EditMemberViewModel
-        {
-            Id = id,
-            Name = member.Name,
-            Email = member.Email,
-            Phone = member.Phone,
-            BuildingNumber = member.BuildingNumber,
-            City = member.City,
-            Street = member.Street,
-            PhotoUrl = member.PhotoUrl
-        };
-
-        return View("EditMember", viewModel);
+        return View("EditMember", member.Adapt<EditMemberViewModel>());
     }
 
     [HttpPost]
@@ -94,16 +60,7 @@ public class MembersController(
             return View("EditMember", model);
         }
 
-        var dto = new EditMemberDto
-        {
-            Name = model.Name,
-            Email = model.Email,
-            Phone = model.Phone,
-            BuildingNumber = model.BuildingNumber,
-            City = model.City,
-            Street = model.Street,
-            PhotoUrl = model.PhotoUrl
-        };
+        var dto = model.Adapt<EditMemberDto>();
 
         var result = await memberService.UpdateAsync(id, dto, cancellationToken);
         if (result.IsFailure)
@@ -125,15 +82,7 @@ public class MembersController(
             return NotFound();
         }
 
-        var viewModel = new HealthRecordViewModel
-        {
-            Height = healthRecord.Height,
-            Weight = healthRecord.Weight,
-            BloodType = healthRecord.BloodType,
-            Note = healthRecord.Note
-        };
-
-        return View("MemberHealthRecord", viewModel);
+        return View("MemberHealthRecord", healthRecord.Adapt<HealthRecordViewModel>());
     }
 
     [HttpPost]
@@ -145,20 +94,7 @@ public class MembersController(
             return View(model);
         }
 
-        var dto = new CreateMemberDto
-        {
-            Name = model.Name,
-            Email = model.Email,
-            Phone = model.Phone,
-            DateOfBirth = model.DateOfBirth,
-            Gender = model.Gender,
-            BuildingNumber = model.BuildingNumber,
-            City = model.City,
-            Street = model.Street,
-            HeightInCentimeters = model.HealthRecordViewModel.Height,
-            WeightInKilograms = model.HealthRecordViewModel.Weight,
-            BloodType = model.HealthRecordViewModel.BloodType
-        };
+        var dto = model.Adapt<CreateMemberDto>();
 
         var result = await memberService.CreateAsync(dto, cancellationToken);
 

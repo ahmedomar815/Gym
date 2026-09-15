@@ -21,6 +21,8 @@ public static class DependencyInjectionExtensions
         services.AddScoped<IPlanRepository, PlanRepository>();
         services.AddScoped<IMemberRepository, MemberRepository>();
         services.AddScoped<ISessionRepository, SessionRepository>();
+        services.AddScoped<ITrainerRepository, TrainerRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 

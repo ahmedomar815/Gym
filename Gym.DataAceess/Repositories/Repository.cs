@@ -1,5 +1,6 @@
 using Gym.DataAccess.Data.Contexts;
 using Gym.DataAccess.Models;
+using Gym.DataAceess.Specificaiton;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -19,6 +20,14 @@ public class Repository<T>(GymDbContext context) : IRepository<T> where T : Base
     {
         return _dbSet  
             .FirstOrDefaultAsync(entity => entity.Id == id ,cancellationToken);
+    }
+
+    public Task<T?> GetEntityWithSpecificationAsync(
+        Specification<T> specification,
+        CancellationToken cancellationToken = default)
+    {
+        var query = SpecificationEvaluator.GetQuery(_dbSet.AsQueryable(), specification);
+        return query.FirstOrDefaultAsync(cancellationToken);
     }
 
     public Task<T?> FindAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)

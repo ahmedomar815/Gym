@@ -37,7 +37,7 @@ public sealed class SessionListItemViewModel
         _ => "Ongoing"
     };
 
-    public string DateDisplay => StartTime.ToString("dd MMM yyyy");
+    public DateOnly Date => DateOnly.FromDateTime(StartTime);
 
     public string TimeRangeDisplay => $"{StartTime:hh:mm tt} - {EndTime:hh:mm tt}";
 

@@ -19,12 +19,4 @@ internal class MemberRepository(GymDbContext context) : Repository<Member>(conte
         return await _context.Members.AnyAsync(m => m.PhoneNumber== phone&&(!id.HasValue||m.Id!=id ), cancellationToken);
     }
 
-    public async Task<Member?> GetByIdWithMembershipsAndPlanAsync(int id, CancellationToken cancellationToken = default)
-    {
-        return await _context.Members
-            .Include(member => member.Memberships)
-            .ThenInclude(membership => membership.Plan)
-            .FirstOrDefaultAsync(member => member.Id == id, cancellationToken);
-    }
-
 }

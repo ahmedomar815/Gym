@@ -2,6 +2,7 @@ using Gym.BusinessLogic.DTOs.Sessions;
 using Gym.BusinessLogic.Results;
 using Gym.DataAccess.Models;
 using Gym.DataAccess.Repositories;
+using Mapster;
 
 namespace Gym.BusinessLogic.Services;
 
@@ -9,19 +10,9 @@ internal sealed class SessionService(IUnitOfWork unitOfWork) : ISessionService
 {
     public async Task<IReadOnlyList<SessionListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        var sessions = await unitOfWork.Sessions.GetAllAsync(cancellationToken);
+        var sessions = await unitOfWork.Sessions.GetAllWithDetailsAsync(cancellationToken);
 
-        return sessions.Select(session => new SessionListItemDto
-        {
-            Id = session.Id,
-            CategoryName = session.Category.Name,
-            Description = session.Description,
-            TrainerName = session.Trainer.Name,
-            StartTime = session.StartTime,
-            EndTime = session.EndTime,
-            Capacity = session.Capacity,
-            AvailableSlots = session.Capacity - session.Bookings.Count
-        }).ToList();
+        return sessions.Adapt<List<SessionListItemDto>>();
     }
 
 

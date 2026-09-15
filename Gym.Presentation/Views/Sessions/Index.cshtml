@@ -1,4 +1,4 @@
-@model IReadOnlyList<Gym.Presentation.ViewModels.Sessions.SessionListItemViewModel>
+@model IReadOnlyList<SessionListItemViewModel>
 
 <div class="container">
     <header class="d-flex justify-content-between mt-5 mb-4 align-items-center">
@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <p class="text-muted mb-3">@session.Description</p>
                             <p><strong>Trainer:</strong> @session.TrainerName</p>
-                            <p><strong>Date:</strong> @session.DateDisplay</p>
+                            <p><strong>Date:</strong> @session.Date.ToString("dd MMM yyyy")</p>
                             <p><strong>Time:</strong> @session.TimeRangeDisplay</p>
                             <p><strong>Duration:</strong> @session.Duration</p>
                             <p><strong>Capacity:</strong> @session.AvailableSlots/@session.Capacity slots</p>

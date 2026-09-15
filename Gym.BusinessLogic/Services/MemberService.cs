@@ -3,6 +3,8 @@ using Gym.BusinessLogic.Results;
 using Gym.DataAccess.Models;
 using Gym.DataAccess.Repositories;
 using Gym.DataAceess.Repositories;
+using Gym.DataAceess.Specificaiton.Members;
+using Mapster;
 
 
 namespace Gym.BusinessLogic.Services;
@@ -14,44 +16,14 @@ internal sealed class MemberService(IUnitOfWork UniteOfWork, IBookingService boo
     public async Task<IReadOnlyList<MemberListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
         var members = await _uniteOfWork.Members.GetAllAsync(cancellationToken);
-        return members.Select(member => new MemberListItemDto
-        {
-            Id = member.Id,
-            PhotoUrl = member.PhotoUrl,
-            Name = member.Name,
-            Email = member.Email,
-            Gender = member.Gender.ToString(),
-            PhoneNumber = member.PhoneNumber
-        }).ToList();
+        return members.Adapt<List<MemberListItemDto>>();
     }
 
     public async Task<MemberDetailsDto?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        var member = await _uniteOfWork.Members.GetByIdWithMembershipsAndPlanAsync(id, cancellationToken);
-        if (member is null)
-        {
-            return null;
-        }
-
-        var membership = member.Memberships
-            .Where(item => item.IsActive)
-            .OrderByDescending(item => item.StartDate)
-            .FirstOrDefault();
-
-        return new MemberDetailsDto
-        {
-            Id = member.Id,
-            Name = member.Name,
-            PhotoUrl = member.PhotoUrl,
-            Email = member.Email,
-            Phone = member.PhoneNumber,
-            Gender = member.Gender.ToString(),
-            DateOfBirth = member.DateOfBirth,
-            Address = $"{member.Address.BuidingNumber} {member.Address.Street}, {member.Address.City}".Trim(),
-            PlanName = membership?.Plan.Name ?? string.Empty,
-            MembershipStartDate = membership?.StartDate,
-            MembershipEndDate = membership?.EndDate
-        };
+        var specification = new MemberWithMembershipsAndPlanSpecification(id);
+        var member = await _uniteOfWork.Members.GetEntityWithSpecificationAsync(specification, cancellationToken);
+        return member?.Adapt<MemberDetailsDto>();
     }
 
     public async Task<EditMemberDto?> GetForEditAsync(int id, CancellationToken cancellationToken = default)
@@ -62,17 +34,7 @@ internal sealed class MemberService(IUnitOfWork UniteOfWork, IBookingService boo
             return null;
         }
 
-        return new EditMemberDto
-        {
-           
-            Name = member.Name,
-            Email = member.Email,
-            Phone = member.PhoneNumber,
-            BuildingNumber = member.Address.BuidingNumber,
-            City = member.Address.City,
-            Street = member.Address.Street,
-            PhotoUrl = member.PhotoUrl
-        };
+        return member.Adapt<EditMemberDto>();
     }
 
     public async Task<Result> CreateAsync(CreateMemberDto model, CancellationToken cancellationToken = default)
@@ -96,28 +58,10 @@ internal sealed class MemberService(IUnitOfWork UniteOfWork, IBookingService boo
                 "A member with this phone number already exists."));
         }
 
-        var member = new Member
-        {
-            Name = model.Name.Trim(),
-            Email = email,
-            PhoneNumber = phoneNumber,
-            DateOfBirth = model.DateOfBirth,
-            Gender = model.Gender,
-            IsActive = true,
-            JoinDate = DateTime.UtcNow,
-            Address = new Address
-            {
-                BuidingNumber = model.BuildingNumber,
-                City = model.City.Trim(),
-                Street = model.Street.Trim()
-            },
-            HealthyRecord = new HealthyRecord
-            {
-                HeightInCentimeters = model.HeightInCentimeters,
-                WeightInKilograms = model.WeightInKilograms,
-                BloodType = model.BloodType
-            }
-        };
+        var member = model.Adapt<Member>();
+        member.Name = model.Name.Trim();
+        member.Email = email;
+        member.PhoneNumber = phoneNumber;
 
         await _uniteOfWork.Members.AddAsync(member, cancellationToken);
         await _uniteOfWork.CommitAsync(cancellationToken);

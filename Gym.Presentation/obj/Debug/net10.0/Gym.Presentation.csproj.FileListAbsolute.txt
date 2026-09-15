@@ -239,4 +239,6 @@ C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\swae.build.ex.cache
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\4ooopaekxz-{0}-ou1mk8im0n-ou1mk8im0n.gz
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Mapster.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Mapster.Core.dll
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
