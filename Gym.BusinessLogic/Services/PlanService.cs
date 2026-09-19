@@ -18,5 +18,4 @@ internal sealed class PlanService(IRepository<Plan> planRepository) : IPlanServi
         var plan = await planRepository.GetByIdAsync(id, cancellationToken);
         return plan?.Adapt<PlanDto>();
     }
-
 }

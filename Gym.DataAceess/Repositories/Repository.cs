@@ -37,17 +37,7 @@ public class Repository<T>(GymDbContext context) : IRepository<T> where T : Base
             .FirstOrDefaultAsync(predicate, cancellationToken);
     }
 
-    public async Task<T?> GetByIdIncludingAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes)
-    {
-        IQueryable<T> query = _dbSet;
-
-        foreach (var include in includes)
-        {
-            query = query.Include(include);
-        }
-
-        return await query.FirstOrDefaultAsync(x => x.Id == id);
-    }
+   
 
     public Task<T?> GetDeletedByIdAsync(int id, CancellationToken cancellationToken = default)
     {
@@ -78,11 +68,7 @@ public class Repository<T>(GymDbContext context) : IRepository<T> where T : Base
         _dbSet.Update(entity);
     }
 
-    public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    {
-        return context.SaveChangesAsync(cancellationToken);
-    }
-
+  
     public async Task<bool> ExistAsync(  Expression<Func<T, bool>> predicate,CancellationToken cancellationToken = default)
     {
         return await _dbSet.AnyAsync(predicate, cancellationToken);

@@ -3,15 +3,13 @@ using Gym.BusinessLogic.DTOs.Sessions;
 using Gym.Presentation.ViewModels.Sessions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Gym.Presentation.Extensions;
+
 using Mapster;
 
 namespace Gym.Presentation.Controllers;
 
 public class SessionsController(
-    ISessionService sessionService,
-    ITrainerService trainerService,
-    ICategoryService categoryService) : Controller
+    ISessionService sessionService) : Controller
 {
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
@@ -22,9 +20,25 @@ public class SessionsController(
     }
 
     [HttpGet]
+    public async Task<IActionResult> Details(int id, CancellationToken cancellationToken)
+    {
+        var session = await sessionService.GetDetailsByID(id, cancellationToken);
+        if (session.IsFailure)
+        {
+            TempData["ErrorMessage"] = session.Error;
+            return RedirectToAction(nameof(Index));
+        }
+
+        var viewModel = session.Value.Adapt<SessionDetailsViewModel>();
+        return View(viewModel);
+    }
+
+    [HttpGet]
     public async Task<IActionResult> Create(CancellationToken cancellationToken)
     {
-        return View(await CreateViewModelAsync(cancellationToken));
+        var model = new CreateSessionViewModel();
+        await PopulateLookupsAsync(model, cancellationToken);
+        return View(model);
     }
 
     [HttpPost]
@@ -41,32 +55,87 @@ public class SessionsController(
 
         if (result.IsFailure)
         {
-            TempData["ErrorMessage"] = result.Error.Description;
-            ModelState.AddModelError(nameof(result.Error.Code), result.Error.Description);
+            TempData["ErrorMessage"] = result.Error;
+            ModelState.AddModelError(nameof(result.ErrorCode), result.Error!);
             await PopulateLookupsAsync(model, cancellationToken);
             return View(model);
         }
         TempData["SuccessMessage"] = "Session created successfully.";
         return RedirectToAction(nameof(Index));
+    }
+    public async Task<IActionResult> Edit(int id, CancellationToken cancellationToken)
+    {
+        var session = await sessionService.GetForEditAsync(id, cancellationToken);
+        if (session is null)
+        {
+            TempData["ErrorMessage"] = "Session not found.";
+            return RedirectToAction(nameof(Index));
+        }
 
-
-
+        await PopulateEditTrainersAsync(session.CategoryId, cancellationToken);
+        return View(session.Adapt<SessionEditViewModel>());
     }
 
-    private async Task<CreateSessionViewModel> CreateViewModelAsync(CancellationToken cancellationToken)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(
+        int id,
+        SessionEditViewModel model,
+        CancellationToken cancellationToken)
     {
-        var model = new CreateSessionViewModel();
-        await PopulateLookupsAsync(model, cancellationToken);
-        return model;
+        if (id != model.Id)
+            return BadRequest();
+
+        if (!ModelState.IsValid)
+        {
+            await PopulateEditTrainersForSessionAsync(id, cancellationToken);
+            return View(model);
+        }
+
+        var result = await sessionService.UpdateAsync(
+            id,
+            model.Adapt<EditSessionDto>(),
+            cancellationToken);
+
+        if (result.IsFailure)
+        {
+            ModelState.AddModelError(result.ErrorCode ?? string.Empty, result.Error ?? "Unable to update the session.");
+            await PopulateEditTrainersForSessionAsync(id, cancellationToken);
+            return View(model);
+        }
+
+        TempData["SuccessMessage"] = "Session updated successfully.";
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetTrainersByCategory(int categoryId, CancellationToken cancellationToken)
+    {
+        if (categoryId <= 0)
+            return BadRequest();
+
+        var trainers = await sessionService.GetTrainersByCategoryAsync(categoryId, cancellationToken);
+        return Json(trainers);
     }
 
     private async Task PopulateLookupsAsync(CreateSessionViewModel model, CancellationToken cancellationToken)
     {
-        var trainersTask = trainerService.GetAllAsync(cancellationToken);
-        var categoriesTask = categoryService.GetAllAsync(cancellationToken);
-        await Task.WhenAll(trainersTask, categoriesTask);
+        var categories = await sessionService.GetCreateCategoriesAsync(cancellationToken);
 
-        model.Trainers = trainersTask.Result.Adapt<List<SelectListItem>>();
-        model.Categories = categoriesTask.Result.Adapt<List<SelectListItem>>();
+        model.Categories = categories.Adapt<List<SelectListItem>>();
     }
+
+    private async Task PopulateEditTrainersAsync(int categoryId, CancellationToken cancellationToken)
+    {
+        var trainers = await sessionService.GetTrainersByCategoryAsync(categoryId, cancellationToken);
+        ViewBag.Trainers = trainers.Adapt<List<SelectListItem>>();
+    }
+
+    private async Task PopulateEditTrainersForSessionAsync(int sessionId, CancellationToken cancellationToken)
+    {
+        var session = await sessionService.GetForEditAsync(sessionId, cancellationToken);
+        if (session is not null)
+            await PopulateEditTrainersAsync(session.CategoryId, cancellationToken);
+    }
+
 }

@@ -1,6 +1,8 @@
 using Gym.DataAccess.Data.Contexts;
 using Gym.DataAccess.Models;
 using Gym.DataAccess.Repositories;
+using Gym.DataAceess.Specificaiton;
+using Gym.DataAceess.Specificaiton.Sessions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gym.DataAceess.Repositories;
@@ -11,10 +13,7 @@ internal sealed class SessionRepository(GymDbContext context) : Repository<Sessi
 
     public async Task<IReadOnlyList<Session>> GetAllWithDetailsAsync(CancellationToken cancellationToken = default)
     {
-        return await _context.Sessions
-            .Include(session => session.Trainer)
-            .Include(session => session.Category)
-            .Include(session => session.Bookings)
+        return await SpecificationEvaluator.GetQuery(_context.Sessions.AsQueryable(), new SessionWithTrainerCategoryAndBooking())
             .ToListAsync(cancellationToken);
     }
 }

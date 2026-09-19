@@ -3,7 +3,7 @@ using Gym.DataAceess.Repositories;
 
 namespace Gym.DataAccess.Repositories;
 
-public  interface IUnitOfWork:IAsyncDisposable
+public  interface IUniteOfWork:IAsyncDisposable
 {
   public IMemberRepository Members { get; }
     public IBookingRepository Bookings { get; }

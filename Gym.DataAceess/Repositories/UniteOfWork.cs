@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Gym.DataAccess.Repositories;
 
-internal sealed class UnitOfWork(GymDbContext context) : IUnitOfWork
+internal sealed class UniteOfWork(GymDbContext context) : IUniteOfWork
 {
     private readonly GymDbContext _context = context;
 

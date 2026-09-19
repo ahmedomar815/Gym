@@ -4,7 +4,7 @@ using Gym.DataAccess.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Gym.Presentation.ViewModels.Members;
 using Gym.BusinessLogic.DTOs.Members;
-using Gym.Presentation.Extensions;
+
 using Mapster;
 
 namespace Gym.Presentation.Controllers;
@@ -65,7 +65,7 @@ public class MembersController(
         var result = await memberService.UpdateAsync(id, dto, cancellationToken);
         if (result.IsFailure)
         {
-            result.AddToModelState(ModelState);
+           ModelState.AddModelError(result.ErrorCode ?? string.Empty, result.Error!);
             return View("EditMember", model);
         }
 
@@ -100,8 +100,8 @@ public class MembersController(
 
         if (result.IsFailure)
         {
-            TempData["ErrorMessage"] = result.Error.Description;
-            result.AddToModelState(ModelState);
+            TempData["ErrorMessage"] = result.Error;
+            ModelState.AddModelError(result.ErrorCode ?? string.Empty, result.Error!);
             return View(model);
         }
 
@@ -118,7 +118,7 @@ public class MembersController(
         var result = await memberService.DeleteAsync(id, cancellationToken);
         if (result.IsFailure)
         {
-            TempData["ErrorMessage"] = result.Error.Description;
+            TempData["ErrorMessage"] = result.Error;
             return RedirectToAction(nameof(Index));
         }
         TempData["SuccessMessage"] = "Member deleted successfully.";

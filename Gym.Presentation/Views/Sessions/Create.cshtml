@@ -6,7 +6,7 @@
         <header class="mb-4">
             <h3 class="text-primary-color">Create Session</h3>
         </header>
-        <partial name="_TempDataAlert" />
+        
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -36,7 +36,7 @@
 
             <div class="mb-3">
                 <label asp-for="TrainerId" class="form-label"></label>
-                <select asp-for="TrainerId" asp-items="Model.Trainers" class="form-select">
+                <select asp-for="TrainerId" class="form-select">
                     <option value="0">-- Select trainer --</option>
                 </select>
                 <span asp-validation-for="TrainerId" class="text-danger"></span>
@@ -57,4 +57,43 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        (() => {
+            const categorySelect = document.getElementById('CategoryId');
+            const trainerSelect = document.getElementById('TrainerId');
+            const trainersUrl = '@Url.Action("GetTrainersByCategory", "Sessions")';
+            const selectedTrainerId = '@Model.TrainerId';
+
+            if (!categorySelect || !trainerSelect) return;
+
+            function clearTrainerOptions() {
+                trainerSelect.innerHTML = '';
+                trainerSelect.add(new Option('-- Select trainer --', '0'));
+            }
+
+            async function loadTrainers(categoryId) {
+                clearTrainerOptions();
+
+                if (!categoryId || categoryId === '0') return;
+
+                try {
+                    const response = await fetch(`${trainersUrl}?categoryId=${encodeURIComponent(categoryId)}`);
+                    if (!response.ok) throw new Error('Unable to load trainers.');
+
+                    const trainers = await response.json();
+                    trainers.forEach(trainer => {
+                        const option = new Option(trainer.name, trainer.id);
+                        option.selected = String(trainer.id) === selectedTrainerId;
+                        trainerSelect.add(option);
+                    });
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            categorySelect.addEventListener('change', () => loadTrainers(categorySelect.value));
+            loadTrainers(categorySelect.value);
+        })();
+    </script>
 }

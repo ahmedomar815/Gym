@@ -18,12 +18,22 @@ public static class MapsterConfig
     {
         TypeAdapterConfig<PlanDto, PlanViewModel>.NewConfig();
         TypeAdapterConfig<SessionListItemDto, SessionListItemViewModel>.NewConfig();
+        TypeAdapterConfig<SessionDetailsDto, SessionDetailsViewModel>.NewConfig()
+            .Map(destination => destination.AvailableSlots,
+                source =>  source.CountBooking)
+            .Map(destination => destination.StartDate, source => source.StartTime)
+            .Map(destination => destination.EndDate, source => source.EndTime)
+            .Map(destination => destination.Status,
+                source => source.StartTime > DateTime.Now
+                    ? "Upcoming"
+                    : source.EndTime >= DateTime.Now
+                        ? "Ongoing"
+                        : "Completed");
         TypeAdapterConfig<MemberDetailsDto, MemberDetailsViewModel>.NewConfig();
         TypeAdapterConfig<EditMemberDto, EditMemberViewModel>.NewConfig();
         TypeAdapterConfig<HealthRecordDto, HealthRecordViewModel>.NewConfig();
 
-        TypeAdapterConfig<MemberListItemDto, MemberListItemViewModel>.NewConfig()
-            .Map(destination => destination.FirstName, source => source.Name);
+        TypeAdapterConfig<MemberListItemDto, MemberListItemViewModel>.NewConfig();
 
         TypeAdapterConfig<CreateMemberViewModel, CreateMemberDto>.NewConfig()
             .Map(destination => destination.HeightInCentimeters, source => source.HealthRecordViewModel.Height)

@@ -9,9 +9,9 @@ using Mapster;
 
 namespace Gym.BusinessLogic.Services;
 
-internal sealed class MemberService(IUnitOfWork UniteOfWork, IBookingService bookingService) : IMemberService
+internal sealed class MemberService(IUniteOfWork UniteOfWork, IBookingService bookingService) : IMemberService
 {
-    private readonly IUnitOfWork _uniteOfWork = UniteOfWork;
+    private readonly IUniteOfWork _uniteOfWork = UniteOfWork;
 
     public async Task<IReadOnlyList<MemberListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
@@ -46,16 +46,16 @@ internal sealed class MemberService(IUnitOfWork UniteOfWork, IBookingService boo
 
         if (await _uniteOfWork.Members.IsEmailTakenAsync(email, cancellationToken))
         {
-            return Result.Failure(Error.Conflict(
-               nameof(model.Email),
-                "A member with this email address already exists."));
+            return Result.Failure(
+                "A member with this email address already exists.",
+                nameof(model.Email));
         }
 
         if (await _uniteOfWork.Members.IsPhoneTakenAsync(phoneNumber, cancellationToken))
         {
-            return Result.Failure(Error.Conflict(
-                 nameof(model.Phone),
-                "A member with this phone number already exists."));
+            return Result.Failure(
+                "A member with this phone number already exists.",
+                nameof(model.Phone));
         }
 
         var member = model.Adapt<Member>();
@@ -73,31 +73,31 @@ internal sealed class MemberService(IUnitOfWork UniteOfWork, IBookingService boo
         var member = await _uniteOfWork.Members.GetByIdAsync(id, cancellationToken);
         if (member is null)
         {
-            return Result.Failure(Error.NotFound(
-                nameof(id),
-                "Member not found."));
+            return Result.Failure(
+                "Member not found.",
+                nameof(id));
         }
 
         var email = model.Email.Trim().ToLower();
         var phoneNumber = model.Phone.Trim();
         if(model.Name != member.Name)
         {
-            return Result.Failure(Error.Validation(
-               nameof(model.Name),
-               "This Name is Changed"));
+            return Result.Failure(
+                "This name is changed.",
+                nameof(model.Name));
         }
         if (await _uniteOfWork.Members.IsPhoneTakenAsync(phoneNumber, cancellationToken, id))
         {
-            return Result.Failure(Error.Conflict(
-                nameof(model.Phone),
-                "A member with this phone number already exists."));
+            return Result.Failure(
+                "A member with this phone number already exists.",
+                nameof(model.Phone));
         }
 
         if (await _uniteOfWork.Members.IsEmailTakenAsync(email, cancellationToken, id))
         {
-            return Result.Failure(Error.Conflict(
-                nameof(model.Email),
-                "A member with this email address already exists."));
+            return Result.Failure(
+                "A member with this email address already exists.",
+                nameof(model.Email));
         }
 
         member.Name = model.Name.Trim();
@@ -119,16 +119,16 @@ internal sealed class MemberService(IUnitOfWork UniteOfWork, IBookingService boo
       
         if (member is null)
         {
-            return Result.Failure(Error.NotFound(
-                nameof(id),
-                "Member not found."));
+            return Result.Failure(
+                "Member not found.",
+                nameof(id));
         }
 
         if (await bookingService.HasBookingsForMemberAsync(id, cancellationToken))
         {
-            return Result.Failure(Error.Conflict(
-                nameof(id),
-                "This member cannot be deleted because they have booked sessions."));
+            return Result.Failure(
+                "The member cannot be deleted because they have existing bookings.",
+                nameof(id));
         }
 
         var healthRecord = await _uniteOfWork.HealthyRecords.FindAsync(

@@ -9,3 +9,5 @@ public sealed class CreateSessionDto
     public int TrainerId { get; init; }
     public int CategoryId { get; init; }
 }
+
+

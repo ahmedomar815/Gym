@@ -1,6 +1,7 @@
 @model IReadOnlyList<SessionListItemViewModel>
 
 <div class="container">
+    <partial name="_TempDataAlert" />
     <header class="d-flex justify-content-between mt-5 mb-4 align-items-center">
         <div>
             <h2 class="text-primary-color mb-0">Training Sessions</h2>
@@ -18,7 +19,7 @@
             {
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100 shadow-sm border-0 session-card">
-                        <div class="card-header text-white py-3 @(session.Status == "Ongoing" ? "bg-success" : session.Status == "Upcoming" ? "bg-primary" : "bg-secondary")">
+                        <div class="card-header text-white py-3 @(session.Status.ToString() == "Ongoing" ? "bg-success" : session.Status.ToString() == "Upcoming" ? "bg-primary" : "bg-secondary")">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0"><i class="bi bi-calendar-event me-2"></i>@session.CategoryName</h5>
                                 <span class="badge bg-light text-dark">@session.Status</span>
@@ -30,12 +31,21 @@
                             <p><strong>Date:</strong> @session.Date.ToString("dd MMM yyyy")</p>
                             <p><strong>Time:</strong> @session.TimeRangeDisplay</p>
                             <p><strong>Duration:</strong> @session.Duration</p>
-                            <p><strong>Capacity:</strong> @session.AvailableSlots/@session.Capacity slots</p>
+                            <p><strong>Capacity:</strong> @session.CountBooking/@session.Capacity slots</p>
                         </div>
                         <div class="card-footer bg-white border-0 d-grid gap-2">
                             <a asp-action="Details" asp-route-id="@session.Id" class="btn btn-outline btn-sm">View Details</a>
                             <div class="d-flex gap-2">
-                                <a asp-action="Edit" asp-route-id="@session.Id" class="btn btn-outline btn-sm flex-fill">Edit</a>
+                                @if (session.Status is SessionStatus.Completed or SessionStatus.Ongoing)
+                                {
+                                    <span class="btn btn-outline btn-sm flex-fill disabled"
+                                          aria-disabled="true"
+                                          title="Completed and upcoming sessions cannot be edited.">Edit</span>
+                                }
+                                else
+                                {
+                                    <a asp-action="Edit" asp-route-id="@session.Id" class="btn btn-outline btn-sm flex-fill">Edit</a>
+                                }
                                 <a asp-action="Delete" asp-route-id="@session.Id" class="btn btn-outline text-danger btn-sm flex-fill">Delete</a>
                             </div>
                         </div>

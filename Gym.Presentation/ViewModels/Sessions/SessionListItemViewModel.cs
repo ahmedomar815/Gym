@@ -1,3 +1,5 @@
+using Gym.DataAccess.Models;
+using Gym.Presentation.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace Gym.Presentation.ViewModels.Sessions;
@@ -27,19 +29,20 @@ public sealed class SessionListItemViewModel
     [Range(1, 25)]
     public int Capacity { get; init; }
 
-    [Range(0, 25)]
-    public int AvailableSlots { get; init; }
+    [Range(1, 25)]
+    public int CountBooking { get; init; }
 
-    public string Status => DateTime.Now switch
+    public string TimeRangeDisplay =>
+    $"{StartTime:HH:mm} - {EndTime:HH:mm}";
+
+    public SessionStatus Status => this switch
     {
-        var now when now < StartTime => "Upcoming",
-        var now when now >= EndTime => "Completed",
-        _ => "Ongoing"
+        var s when s.StartTime > DateTime.Now => SessionStatus.Upcoming,
+        var s when s.EndTime < DateTime.Now => SessionStatus.Completed,
+        _ => SessionStatus.Ongoing
     };
 
     public DateOnly Date => DateOnly.FromDateTime(StartTime);
-
-    public string TimeRangeDisplay => $"{StartTime:hh:mm tt} - {EndTime:hh:mm tt}";
 
     public TimeSpan Duration => EndTime - StartTime;
 

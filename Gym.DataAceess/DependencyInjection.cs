@@ -24,7 +24,7 @@ public static class DependencyInjectionExtensions
         services.AddScoped<ITrainerRepository, TrainerRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IUniteOfWork, UniteOfWork>();
 
         return services;
     }

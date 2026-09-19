@@ -11,8 +11,6 @@ public static class DependencyInjectionExtensions
         MapsterConfig.Register();
         services.AddScoped<IPlanService, PlanService>();
         services.AddScoped<ISessionService, SessionService>();
-        services.AddScoped<ITrainerService, TrainerService>();
-        services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IMemberService, MemberService>();
         services.AddScoped<IBookingService, BookingService>();
         services.AddScoped<IHealthRecordService, HealthRecordService>();
