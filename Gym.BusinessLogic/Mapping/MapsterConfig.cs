@@ -72,6 +72,11 @@ public static class MapsterConfig
             .Map(destination => destination.TrainerName, source => source.Trainer.Name)
             .Map(destination => destination.AvailableSlots, source => source.Capacity - source.Bookings.Count);
 
+        TypeAdapterConfig<Session, SessionDetailsDto>.NewConfig()
+            .Map(destination => destination.CategoryName, source => source.Category.Name)
+            .Map(destination => destination.TrainerName, source => source.Trainer.Name)
+            .Map(destination => destination.CountBooking, source => source.Bookings.Count);
+
         TypeAdapterConfig<Session, EditSessionDto>.NewConfig()
             .Map(destination => destination.StartDate, source => source.StartTime)
             .Map(destination => destination.EndDate, source => source.EndTime);

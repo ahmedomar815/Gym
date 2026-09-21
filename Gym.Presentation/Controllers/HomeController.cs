@@ -1,14 +1,18 @@
+using Gym.BusinessLogic.Services;
+using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Models;
 using System.Diagnostics;
 
 namespace Presentation.Controllers;
 
-public class HomeController : Controller
+public class HomeController(IDashboardService dashboardService) : Controller
 {
-    public IActionResult Index()
+    public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
-        return View();
+        var summary = await dashboardService.GetSummaryAsync(cancellationToken);
+
+        return View(summary.Adapt<HomeViewModel>());
     }
 
     public IActionResult Privacy()

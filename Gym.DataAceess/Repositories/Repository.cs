@@ -16,6 +16,15 @@ public class Repository<T>(GymDbContext context) : IRepository<T> where T : Base
             .ToListAsync(cancellationToken);
     }
 
+    public Task<int> CountAsync(
+        Expression<Func<T, bool>>? predicate = null,
+        CancellationToken cancellationToken = default)
+    {
+        return predicate is null
+            ? _dbSet.CountAsync(cancellationToken)
+            : _dbSet.CountAsync(predicate, cancellationToken);
+    }
+
     public Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         return _dbSet  

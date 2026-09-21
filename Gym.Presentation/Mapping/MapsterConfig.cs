@@ -4,6 +4,8 @@ using Gym.BusinessLogic.DTOs.Plans;
 using Gym.BusinessLogic.DTOs.Sessions;
 using Gym.BusinessLogic.DTOs.Trainers;
 using Gym.BusinessLogic.DTOs.Categories;
+using Gym.BusinessLogic.DTOs.Dashboard;
+using Gym.Presentation.ViewModels.Dashboard;
 using Gym.Presentation.ViewModels.Members;
 using Gym.Presentation.ViewModels.Plans;
 using Gym.Presentation.ViewModels.Sessions;
@@ -17,6 +19,9 @@ public static class MapsterConfig
     public static void Register()
     {
         TypeAdapterConfig<PlanDto, PlanViewModel>.NewConfig();
+        TypeAdapterConfig<DashboardDto, DashboardViewModel>.NewConfig();
+        TypeAdapterConfig<DashboardDto, HomeViewModel>.NewConfig()
+            .Map(destination => destination.Trainers, source => source.TotalTrainers);
         TypeAdapterConfig<SessionListItemDto, SessionListItemViewModel>.NewConfig();
         TypeAdapterConfig<SessionDetailsDto, SessionDetailsViewModel>.NewConfig()
             .Map(destination => destination.AvailableSlots,
@@ -29,6 +34,7 @@ public static class MapsterConfig
                     : source.EndTime >= DateTime.Now
                         ? "Ongoing"
                         : "Completed");
+        TypeAdapterConfig<SessionDetailsDto, DeleteSessionViewModel>.NewConfig();
         TypeAdapterConfig<MemberDetailsDto, MemberDetailsViewModel>.NewConfig();
         TypeAdapterConfig<EditMemberDto, EditMemberViewModel>.NewConfig();
         TypeAdapterConfig<HealthRecordDto, HealthRecordViewModel>.NewConfig();

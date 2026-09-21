@@ -1,6 +1,7 @@
 ﻿using Gym.DataAccess.Models;
 
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Gym.DataAccess.Data.Contexts;
 
@@ -11,7 +12,10 @@ public class GymDbContext(DbContextOptions<GymDbContext> options) :DbContext(opt
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(GymDbContext).Assembly);
 
+        base.OnModelCreating(modelBuilder);
+
       
+
     }
 
     public override int SaveChanges(bool acceptAllChangesOnSuccess)

@@ -9,6 +9,10 @@ public interface IRepository<T> where T : BaseEntity
 {
     Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellationToken = default);
 
+    Task<int> CountAsync(
+        Expression<Func<T, bool>>? predicate = null,
+        CancellationToken cancellationToken = default);
+
     Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
 
     Task<T?> GetEntityWithSpecificationAsync(

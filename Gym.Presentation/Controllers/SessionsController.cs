@@ -34,6 +34,35 @@ public class SessionsController(
     }
 
     [HttpGet]
+    public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
+    {
+        var session = await sessionService.GetForDeleteAsync(id, cancellationToken);
+        if (session is null)
+        {
+            TempData["ErrorMessage"] = "Session not found.";
+            return RedirectToAction(nameof(Index));
+        }
+
+        return View(session.Adapt<DeleteSessionViewModel>());
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [ActionName(nameof(Delete))]
+    public async Task<IActionResult> DeleteConfirmation(int id, CancellationToken cancellationToken)
+    {
+        var result = await sessionService.DeleteAsync(id, cancellationToken);
+        if (result.IsFailure)
+        {
+            TempData["ErrorMessage"] = result.Error;
+            return RedirectToAction(nameof(Index));
+        }
+
+        TempData["SuccessMessage"] = "Session deleted successfully.";
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
     public async Task<IActionResult> Create(CancellationToken cancellationToken)
     {
         var model = new CreateSessionViewModel();
@@ -78,10 +107,7 @@ public class SessionsController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(
-        int id,
-        SessionEditViewModel model,
-        CancellationToken cancellationToken)
+    public async Task<IActionResult> Edit(  int id,SessionEditViewModel model,CancellationToken cancellationToken)
     {
         if (id != model.Id)
             return BadRequest();
