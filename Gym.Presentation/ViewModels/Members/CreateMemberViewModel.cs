@@ -1,6 +1,8 @@
 ﻿using Gym.DataAccess.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 
+using Microsoft.AspNetCore.Http;
+
 public class CreateMemberViewModel
 {
     [Required(ErrorMessage = "Name Is Required")]
@@ -25,6 +27,9 @@ public class CreateMemberViewModel
 
     [Required(ErrorMessage = "Gender is required")]
     public Gender Gender { get; set; }
+
+    [Display(Name = "Profile photo")]
+    public IFormFile? Photo { get; set; }
 
     [Required(ErrorMessage = "Building Number Is Required")]
     [Range(1, 9000, ErrorMessage = "Building Number must be greater than 0")]

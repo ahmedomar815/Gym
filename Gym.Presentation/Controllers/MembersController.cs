@@ -6,12 +6,15 @@ using Gym.Presentation.ViewModels.Members;
 using Gym.BusinessLogic.DTOs.Members;
 
 using Mapster;
+using Gym.BusinessLogic.AttachmentRules;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Gym.Presentation.Controllers;
 
 public class MembersController(
     IMemberService memberService,
-    IHealthRecordService healthRecordService) : Controller
+    IHealthRecordService healthRecordService
+    ,IAttachmentService attachmentService) : Controller
 {
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
@@ -137,5 +140,14 @@ public class MembersController(
         return View("DeleteMember");
     }
 
+    public async Task<IActionResult>Photo(string storageKey, CancellationToken cancellationToken)
+    {
+        var stream = await attachmentService.GetAsync(storageKey, cancellationToken);
+       if(stream is null)
+        {
+            return NotFound();
+        }
+        return File(stream.Value, "image/jpeg");
+    }
 
 }

@@ -10,10 +10,7 @@
 
         <partial name="_TempDataAlert" />
 
-        <form asp-action="Create" method="post">
-
-            
-
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <table class="table table-bordered align-middle">
 
                 <tbody>
@@ -97,9 +94,25 @@
                             </span>
                         </td>
                     </tr>
+                    <tr>
+                        <th>Profile Photo</th>
+                        <td>
+                            <input asp-for="Photo"
+                                   id="profile-photo-input"
+                                   type="file"
+                                   class="form-control"
+                                   accept="image/jpeg,image/png,image/gif,image/webp" />
+                            <div class="form-text">Optional. JPEG, PNG, GIF, or WebP; maximum 5 MB.</div>
+                            <img id="profile-photo-preview"
+                                 class="rounded-circle mt-3 d-none"
+                                 width="120"
+                                 height="120"
+                                 style="object-fit: cover;"
+                                 alt="Selected profile photo preview" />
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </td>
+                    </tr>
 
-
-                   
 
                     <tr>
                         <th colspan="2" class="table-primary">
@@ -256,5 +269,29 @@
 
     <partial name="_ValidationScriptsPartial" />
     <partial name="_AlertDismissScript" />
+    <script>
+        const photoInput = document.getElementById('profile-photo-input');
+        const photoPreview = document.getElementById('profile-photo-preview');
+        let previewUrl;
+
+        photoInput.addEventListener('change', () => {
+            const [file] = photoInput.files;
+
+            if (previewUrl) {
+                URL.revokeObjectURL(previewUrl);
+                previewUrl = undefined;
+            }
+
+            if (!file) {
+                photoPreview.removeAttribute('src');
+                photoPreview.classList.add('d-none');
+                return;
+            }
+
+            previewUrl = URL.createObjectURL(file);
+            photoPreview.src = previewUrl;
+            photoPreview.classList.remove('d-none');
+        });
+    </script>
 
 }

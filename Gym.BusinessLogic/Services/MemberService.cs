@@ -1,3 +1,4 @@
+using Gym.BusinessLogic.AttachmentRules;
 using Gym.BusinessLogic.DTOs.Members;
 using Gym.BusinessLogic.Results;
 using Gym.DataAccess.Models;
@@ -9,9 +10,10 @@ using Mapster;
 
 namespace Gym.BusinessLogic.Services;
 
-internal sealed class MemberService(IUniteOfWork UniteOfWork, IBookingService bookingService) : IMemberService
+internal sealed class MemberService(IUniteOfWork UniteOfWork, IBookingService bookingService,IAttachmentService attachmentService) : IMemberService
 {
     private readonly IUniteOfWork _uniteOfWork = UniteOfWork;
+    private readonly IAttachmentService _attachmentService = attachmentService;
 
     public async Task<IReadOnlyList<MemberListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
@@ -62,7 +64,15 @@ internal sealed class MemberService(IUniteOfWork UniteOfWork, IBookingService bo
         member.Name = model.Name.Trim();
         member.Email = email;
         member.PhoneNumber = phoneNumber;
-
+        if (model.Photo is { Length:>0 })
+        {
+            var savePhoto= await _attachmentService.SaveAsync(model.Photo, AttachmentsCategories.Members, cancellationToken);
+            if(savePhoto.IsFailure)
+            {
+                return Result.Failure(savePhoto.Error!, savePhoto.ErrorCode);
+            }
+            member.PhotoUrl = savePhoto.Value;
+        }
         await _uniteOfWork.Members.AddAsync(member, cancellationToken);
         await _uniteOfWork.CommitAsync(cancellationToken);
         return Result.Success();
@@ -133,7 +143,10 @@ internal sealed class MemberService(IUniteOfWork UniteOfWork, IBookingService bo
 
         var healthRecord = await _uniteOfWork.HealthyRecords.FindAsync(
           record => record.MemberId == id);
-
+        if(!string.IsNullOrEmpty(member.PhotoUrl))
+        {
+            await _attachmentService.DeleteAsync(member.PhotoUrl, cancellationToken);
+        }
          _uniteOfWork.Members.Delete(member);
         _uniteOfWork.HealthyRecords.Delete(healthRecord!);
 

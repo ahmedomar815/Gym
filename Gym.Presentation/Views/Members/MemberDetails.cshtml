@@ -1,4 +1,4 @@
-﻿```cshtml
+﻿
 @model MemberDetailsViewModel
 
 <div class="container mt-5">
@@ -9,7 +9,7 @@
 
                     
                     <div class="text-center mt-3">
-                        <img src="@(string.IsNullOrWhiteSpace(@Model.PhotoUrl) ? Url.Content("~/images/card-header.jpg") : Model.PhotoUrl)"
+                        <img src="@(string.IsNullOrWhiteSpace(@Model.PhotoUrl) ? Url.Content("~/images/card-header.jpg") : Url.Action("Photo", "Members", new { Model.PhotoUrl }))"
                              alt="@Model.Name"
                              class="rounded-circle"
                              style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #fff; margin-top: -60px;" />
@@ -140,4 +140,3 @@
         </div>
     </main>
 </div>
-```

@@ -1,4 +1,5 @@
 using Gym.DataAccess.Models.Enums;
+using Microsoft.AspNetCore.Http;
 
 namespace Gym.BusinessLogic.DTOs.Members;
 
@@ -15,4 +16,5 @@ public sealed class CreateMemberDto
     public decimal HeightInCentimeters { get; init; }
     public decimal WeightInKilograms { get; init; }
     public BloodType BloodType { get; init; }
+    public IFormFile? Photo { get; init; }
 }

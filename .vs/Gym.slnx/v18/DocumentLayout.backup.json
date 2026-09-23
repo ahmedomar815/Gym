@@ -3,6 +3,54 @@
   "WorkspaceRootPath": "C:\\Users\\EXPRESS\\Desktop\\Gym\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|c:\\users\\express\\desktop\\gym\\gym.presentation\\views\\members\\memberdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|solutionrelative:gym.presentation\\views\\members\\memberdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\attachment\\iattachmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\attachment\\iattachmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|c:\\users\\express\\desktop\\gym\\gym.presentation\\controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|solutionrelative:gym.presentation\\controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|c:\\users\\express\\desktop\\gym\\gym.presentation\\views\\members\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|solutionrelative:gym.presentation\\views\\members\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\attachment\\attachmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\attachment\\attachmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\services\\memberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\services\\memberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\attachment\\attachmentscategories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\attachment\\attachmentscategories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\dtos\\members\\creatememberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\dtos\\members\\creatememberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|c:\\users\\express\\desktop\\gym\\gym.presentation\\viewmodels\\members\\creatememberviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|solutionrelative:gym.presentation\\viewmodels\\members\\creatememberviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\attachment\\attachmentsrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\attachment\\attachmentsrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|c:\\users\\express\\desktop\\gym\\gym.presentation\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06F3A3E8-C518-0E39-3892-092F27711A23}|Gym.Presentation\\Gym.Presentation.csproj|solutionrelative:gym.presentation\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,10 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|c:\\users\\express\\desktop\\gym\\gym.businesslogic\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EF2990E-BA62-6A07-E15C-1DAE6ACD0B8C}|Gym.BusinessLogic\\Gym.BusinessLogic.csproj|solutionrelative:gym.businesslogic\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +82,154 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MemberDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Views\\Members\\MemberDetails.cshtml",
+              "RelativeDocumentMoniker": "Gym.Presentation\\Views\\Members\\MemberDetails.cshtml",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Views\\Members\\MemberDetails.cshtml",
+              "RelativeToolTip": "Gym.Presentation\\Views\\Members\\MemberDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-23T05:57:29.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "MembersController.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Controllers\\MembersController.cs",
+              "RelativeDocumentMoniker": "Gym.Presentation\\Controllers\\MembersController.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Controllers\\MembersController.cs",
+              "RelativeToolTip": "Gym.Presentation\\Controllers\\MembersController.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAYwI4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T05:54:35.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Gym.BusinessLogic\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\DependencyInjection.cs",
+              "RelativeToolTip": "Gym.BusinessLogic\\DependencyInjection.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T16:31:24.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Views\\Members\\Create.cshtml",
+              "RelativeDocumentMoniker": "Gym.Presentation\\Views\\Members\\Create.cshtml",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Views\\Members\\Create.cshtml",
+              "RelativeToolTip": "Gym.Presentation\\Views\\Members\\Create.cshtml",
+              "ViewState": "AgIAAPYAAAAAAAAAAAAAABoBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-22T16:26:45.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CreateMemberDto.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\DTOs\\Members\\CreateMemberDto.cs",
+              "RelativeDocumentMoniker": "Gym.BusinessLogic\\DTOs\\Members\\CreateMemberDto.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\DTOs\\Members\\CreateMemberDto.cs",
+              "RelativeToolTip": "Gym.BusinessLogic\\DTOs\\Members\\CreateMemberDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T15:31:54.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MemberService.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Services\\MemberService.cs",
+              "RelativeDocumentMoniker": "Gym.BusinessLogic\\Services\\MemberService.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Services\\MemberService.cs",
+              "RelativeToolTip": "Gym.BusinessLogic\\Services\\MemberService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T15:29:11.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CreateMemberViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\ViewModels\\Members\\CreateMemberViewModel.cs",
+              "RelativeDocumentMoniker": "Gym.Presentation\\ViewModels\\Members\\CreateMemberViewModel.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\ViewModels\\Members\\CreateMemberViewModel.cs",
+              "RelativeToolTip": "Gym.Presentation\\ViewModels\\Members\\CreateMemberViewModel.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAwwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T15:28:33.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AttachmentService.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Attachment\\AttachmentService.cs",
+              "RelativeDocumentMoniker": "Gym.BusinessLogic\\Attachment\\AttachmentService.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Attachment\\AttachmentService.cs",
+              "RelativeToolTip": "Gym.BusinessLogic\\Attachment\\AttachmentService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T07:34:10.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IAttachmentService.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Attachment\\IAttachmentService.cs",
+              "RelativeDocumentMoniker": "Gym.BusinessLogic\\Attachment\\IAttachmentService.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Attachment\\IAttachmentService.cs",
+              "RelativeToolTip": "Gym.BusinessLogic\\Attachment\\IAttachmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T07:29:46.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AttachmentsCategories.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Attachment\\AttachmentsCategories.cs",
+              "RelativeDocumentMoniker": "Gym.BusinessLogic\\Attachment\\AttachmentsCategories.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Attachment\\AttachmentsCategories.cs",
+              "RelativeToolTip": "Gym.BusinessLogic\\Attachment\\AttachmentsCategories.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T07:27:01.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AttachmentsRules.cs",
+              "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Attachment\\AttachmentsRules.cs",
+              "RelativeDocumentMoniker": "Gym.BusinessLogic\\Attachment\\AttachmentsRules.cs",
+              "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Attachment\\AttachmentsRules.cs",
+              "RelativeToolTip": "Gym.BusinessLogic\\Attachment\\AttachmentsRules.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAswA0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T07:22:34.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Specification.cs",
               "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.DataAceess\\Specificaiton\\Specification.cs",
               "RelativeDocumentMoniker": "Gym.DataAceess\\Specificaiton\\Specification.cs",
@@ -55,33 +242,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Gym.Presentation\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Gym.Presentation\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAABRwBoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-09-21T01:23:58.173Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Gym.Presentation\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.Presentation\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Gym.Presentation\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwBcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-21T01:23:43.885Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
               "Title": "MemberConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.DataAceess\\Data\\Configuration\\MemberConfiguration.cs",
               "RelativeDocumentMoniker": "Gym.DataAceess\\Data\\Configuration\\MemberConfiguration.cs",
@@ -94,33 +281,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "DashboardService.cs",
               "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Services\\DashboardService.cs",
               "RelativeDocumentMoniker": "Gym.BusinessLogic\\Services\\DashboardService.cs",
               "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Services\\DashboardService.cs",
               "RelativeToolTip": "Gym.BusinessLogic\\Services\\DashboardService.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAABBwBAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-21T01:13:28.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SessionService.cs",
               "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Services\\SessionService.cs",
               "RelativeDocumentMoniker": "Gym.BusinessLogic\\Services\\SessionService.cs",
               "ToolTip": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Services\\SessionService.cs",
               "RelativeToolTip": "Gym.BusinessLogic\\Services\\SessionService.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAUwGoAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAIwHgAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-21T01:13:15.808Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "GymDbContext.cs",
               "DocumentMoniker": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.DataAceess\\Data\\Contexts\\GymDbContext.cs",
               "RelativeDocumentMoniker": "Gym.DataAceess\\Data\\Contexts\\GymDbContext.cs",
