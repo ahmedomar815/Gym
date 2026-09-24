@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Gym.Presentation.Controllers;
 
+[Authorize]
 public class SessionsController(
     ISessionService sessionService) : Controller
 {

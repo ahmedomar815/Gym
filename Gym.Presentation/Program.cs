@@ -1,5 +1,9 @@
-using Gym.DataAccess.Data.Contexts;
-using Gym.DataAccess.Data.Seeder;
+
+using Gym.DataAceess.Data.Identity;
+using Gym.DataAceess.Data.Seeder;
+using Gym.DataAceess.Options;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Presentation;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +19,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
 app.MapControllerRoute(
@@ -26,10 +31,17 @@ app.MapControllerRoute(
 
 if (app.Environment.IsDevelopment())
 {
-    using (var scope = app.Services.CreateScope())
-    {
-        var gymDbContext = scope.ServiceProvider.GetRequiredService<GymDbContext>();
-        await DatabaseSeeder.SeedAllAsync(gymDbContext);
-    }
+    using var scope = app.Services.CreateScope();
+
+    var userManager =
+        scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+    var roleManager =
+        scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+
+    var options =
+        scope.ServiceProvider.GetRequiredService<IOptions<IdentitySeedOptions>>();
+
+    await DatabaseSeeder.SeedAllAsync(   userManager, roleManager, options);
 }
 app.Run();

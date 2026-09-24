@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T8tXCXsXzzs=",
+  "dgSpecHash": "+bfDSTO+tjI=",
   "success": true,
   "projectFilePath": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Gym.BusinessLogic.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\EXPRESS\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\mapster\\10.0.12\\mapster.10.0.12.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\mapster.core\\10.0.12\\mapster.core.10.0.12.nupkg.sha512",
+    "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\10.0.11\\microsoft.aspnetcore.identity.entityframeworkcore.10.0.11.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.data.sqlclient\\6.1.6\\microsoft.data.sqlclient.6.1.6.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\6.0.2\\microsoft.data.sqlclient.sni.runtime.6.0.2.nupkg.sha512",
@@ -16,7 +17,6 @@
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.11\\microsoft.entityframeworkcore.analyzers.10.0.11.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.11\\microsoft.entityframeworkcore.relational.10.0.11.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\10.0.11\\microsoft.entityframeworkcore.sqlserver.10.0.11.nupkg.sha512",
-    "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.11\\microsoft.extensions.dependencyinjection.abstractions.10.0.11.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.identity.client\\4.84.2\\microsoft.identity.client.4.84.2.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.identity.client.broker\\4.84.2\\microsoft.identity.client.broker.4.84.2.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.78.0\\microsoft.identity.client.extensions.msal.4.78.0.nupkg.sha512",
@@ -37,18 +37,5 @@
     "C:\\Users\\EXPRESS\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.11\\system.security.cryptography.pkcs.9.0.11.nupkg.sha512",
     "C:\\Users\\EXPRESS\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.11\\system.security.cryptography.protecteddata.9.0.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1510",
-      "level": "Warning",
-      "message": "PackageReference Microsoft.Extensions.DependencyInjection.Abstractions will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
-      "projectPath": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Gym.BusinessLogic.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Gym.BusinessLogic.csproj",
-      "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

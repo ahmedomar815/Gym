@@ -1,5 +1,7 @@
 using Gym.DataAccess.Data.Contexts;
 using Gym.DataAccess.Repositories;
+using Gym.DataAceess.Data.Identity;
+using Gym.DataAceess.Options;
 using Gym.DataAceess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +27,14 @@ public static class DependencyInjectionExtensions
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUniteOfWork, UniteOfWork>();
-
+        services.AddIdentityCore<ApplicationUser>().AddRoles<ApplicationRole>()
+          .AddEntityFrameworkStores<GymDbContext>();
+     
+        services
+     .AddOptions<IdentitySeedOptions>()
+     .Bind(configuration.GetSection("IdentitySeed"))
+     .ValidateDataAnnotations()
+     .ValidateOnStart();
         return services;
     }
 }

@@ -16,4 +16,12 @@
     <ProjectReference Include="..\Gym.DataAceess\Gym.DataAceess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Controllers\AccountController.cs" />
+  </ItemGroup>
+
 </Project>

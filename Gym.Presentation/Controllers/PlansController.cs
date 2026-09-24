@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Gym.Presentation.ViewModels.Plans;
 using Gym.BusinessLogic.DTOs.Plans;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Presentation.Controllers;
 
+[Authorize]
 public class PlansController(IPlanService planService) : Controller
 {
     public async Task<IActionResult> Index(CancellationToken cancellationToken)

@@ -11,7 +11,6 @@
     <PackageReference Include="Mapster" Version="10.0.12" />
     <PackageReference Include="SixLabors.ImageSharp" Version="4.1.2" />
     <ProjectReference Include="..\Gym.DataAceess\Gym.DataAceess.csproj" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.11" />
   </ItemGroup>
 
 </Project>

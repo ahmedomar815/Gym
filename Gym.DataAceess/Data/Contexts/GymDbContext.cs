@@ -1,11 +1,12 @@
 ﻿using Gym.DataAccess.Models;
-
+using Gym.DataAceess.Data.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Gym.DataAccess.Data.Contexts;
 
-public class GymDbContext(DbContextOptions<GymDbContext> options) :DbContext(options)
+public class GymDbContext(DbContextOptions<GymDbContext> options) :IdentityDbContext<ApplicationUser,ApplicationRole,Guid>(options)
 {
   
     protected override void OnModelCreating(ModelBuilder modelBuilder)

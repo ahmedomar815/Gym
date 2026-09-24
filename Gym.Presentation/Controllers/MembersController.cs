@@ -8,9 +8,11 @@ using Gym.BusinessLogic.DTOs.Members;
 using Mapster;
 using Gym.BusinessLogic.AttachmentRules;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Gym.Presentation.Controllers;
 
+[Authorize (Roles ="SuperAdmin")]
 public class MembersController(
     IMemberService memberService,
     IHealthRecordService healthRecordService
