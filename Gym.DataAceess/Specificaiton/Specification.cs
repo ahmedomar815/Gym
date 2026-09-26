@@ -9,9 +9,16 @@ public abstract class Specification<TEntity>
 
     public List<Func<IQueryable<TEntity>, IQueryable<TEntity>>> Includes { get; } = [];
 
+    public Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? OrderBy { get; private set; }
+
     protected void AddInclude(
         Func<IQueryable<TEntity>, IQueryable<TEntity>> includeExpression)
     {
         Includes.Add(includeExpression);
+    }
+
+    protected void AddOrderBy(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderByExpression)
+    {
+        OrderBy = orderByExpression;
     }
 }

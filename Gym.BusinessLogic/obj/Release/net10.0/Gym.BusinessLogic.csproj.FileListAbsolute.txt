@@ -1,0 +1,5 @@
+C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\obj\Release\net10.0\Gym.BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\obj\Release\net10.0\Gym.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\obj\Release\net10.0\Gym.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\obj\Release\net10.0\Gym.BusinessLogic.AssemblyInfo.cs
+C:\Users\EXPRESS\Desktop\Gym\Gym.BusinessLogic\obj\Release\net10.0\Gym.BusinessLogic.csproj.CoreCompileInputs.cache

@@ -5,5 +5,4 @@ namespace Gym.DataAceess.Repositories;
 
 public interface IBookingRepository : IRepository<Booking>
 {
-    Task<bool> HasBookingsForMemberAsync(int memberId, CancellationToken cancellationToken = default);
 }

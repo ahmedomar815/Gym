@@ -7,4 +7,5 @@ public  interface IMemberRepository : IRepository<Member>
 {
      Task<bool> IsEmailTakenAsync(string normalizedEamil, CancellationToken cancellationToken, int? id = null);
     Task<bool> IsPhoneTakenAsync(string phone, CancellationToken cancellationToken, int? id = null);
+    Task<bool> HasBookingsAsync(int memberId, CancellationToken cancellationToken = default);
 }

@@ -19,6 +19,10 @@ public interface IRepository<T> where T : BaseEntity
         Specification<T> specification,
         CancellationToken cancellationToken = default);
 
+    Task<IReadOnlyList<T>> GetAllWithSpecificationAsync(
+        Specification<T> specification,
+        CancellationToken cancellationToken = default);
+
     Task<T?> FindAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default);
 
     Task<T?> GetDeletedByIdAsync(int id, CancellationToken cancellationToken = default);

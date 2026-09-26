@@ -39,6 +39,14 @@ public class Repository<T>(GymDbContext context) : IRepository<T> where T : Base
         return query.FirstOrDefaultAsync(cancellationToken);
     }
 
+    public async Task<IReadOnlyList<T>> GetAllWithSpecificationAsync(
+        Specification<T> specification,
+        CancellationToken cancellationToken = default)
+    {
+        var query = SpecificationEvaluator.GetQuery(_dbSet.AsQueryable(), specification);
+        return await query.ToListAsync(cancellationToken);
+    }
+
     public Task<T?> FindAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
     {
         return _dbSet

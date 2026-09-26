@@ -19,4 +19,9 @@ internal class MemberRepository(GymDbContext context) : Repository<Member>(conte
         return await _context.Members.AnyAsync(m => m.PhoneNumber== phone&&(!id.HasValue||m.Id!=id ), cancellationToken);
     }
 
+    public Task<bool> HasBookingsAsync(int memberId, CancellationToken cancellationToken = default)
+    {
+        return _context.Bookings.AnyAsync(booking => booking.MemberId == memberId, cancellationToken);
+    }
+
 }

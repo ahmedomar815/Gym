@@ -6,6 +6,8 @@ using Gym.BusinessLogic.DTOs.Trainers;
 using Gym.BusinessLogic.DTOs.Categories;
 using Gym.BusinessLogic.DTOs.Dashboard;
 using Gym.Presentation.ViewModels.Dashboard;
+using Gym.Presentation.ViewModels.Bookings;
+using Gym.BusinessLogic.DTOs.Bookings;
 using Gym.Presentation.ViewModels.Members;
 using Gym.Presentation.ViewModels.Plans;
 using Gym.Presentation.ViewModels.Sessions;
@@ -35,6 +37,8 @@ public static class MapsterConfig
                         ? "Ongoing"
                         : "Completed");
         TypeAdapterConfig<SessionDetailsDto, DeleteSessionViewModel>.NewConfig();
+        TypeAdapterConfig<BookingListItemDto, BookingListItemViewModel>.NewConfig();
+        TypeAdapterConfig<CreateBookingViewModel, CreateBookingDto>.NewConfig();
         TypeAdapterConfig<MemberDetailsDto, MemberDetailsViewModel>.NewConfig();
         TypeAdapterConfig<EditMemberDto, EditMemberViewModel>.NewConfig();
         TypeAdapterConfig<HealthRecordDto, HealthRecordViewModel>.NewConfig();

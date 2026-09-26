@@ -17,6 +17,11 @@ public static class SpecificationEvaluator
             query = include(query);
         }
 
+        if (specification.OrderBy is not null)
+        {
+            query = specification.OrderBy(query);
+        }
+
         return query;
     }
 }
