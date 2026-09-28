@@ -14,6 +14,8 @@ public static class DependencyInjectionExtensions
         services.AddScoped<ISessionService, SessionService>();
         services.AddScoped<IDashboardService, DashboardService>();
         services.AddScoped<IMemberService, MemberService>();
+        services.AddScoped<ITrainerService, TrainerService>();
+        services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IBookingService, BookingService>();
         services.AddScoped<IHealthRecordService, HealthRecordService>();
         services.AddScoped<IAttachmentService, AttachmentService>();

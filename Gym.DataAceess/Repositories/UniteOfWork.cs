@@ -15,6 +15,7 @@ internal sealed class UniteOfWork(GymDbContext context) : IUniteOfWork
     private ITrainerRepository? _trainers;
     private IPlanRepository? _plans;
     private ICategoryRepository? _categories;
+    private IRepository<Membership>? _memberships;
     private IRepository<HealthyRecord> ?_healthyRecords;
     private IDbContextTransaction? _transaction;
 
@@ -35,6 +36,9 @@ internal sealed class UniteOfWork(GymDbContext context) : IUniteOfWork
 
     public IPlanRepository Plans
         => _plans ??= new PlanRepository(_context);
+
+    public IRepository<Membership> Memberships
+        => _memberships ??= new Repository<Membership>(_context);
 
     public IRepository<HealthyRecord> HealthyRecords => _healthyRecords ??= new Repository<HealthyRecord>(_context);
 

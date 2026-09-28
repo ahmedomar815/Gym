@@ -7,6 +7,11 @@ public sealed class BookingWithMemberSessionDetails : Specification<Booking>
 {
     public BookingWithMemberSessionDetails()
     {
+        var today = DateTime.Today;
+
+        Criteria = booking =>
+       booking.CreatedAt >= today;
+
         AddInclude(query => query
             .Include(booking => booking.Member)
             .Include(booking => booking.Session)

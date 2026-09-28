@@ -155,6 +155,12 @@ C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\ru\Microsoft.Cod
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Mapster.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Mapster.Core.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Gym.Presentation.exe
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\SixLabors.ImageSharp.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\System.IO.Hashing.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Gym.Presentation.staticwebassets.runtime.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Gym.Presentation.staticwebassets.endpoints.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\rpswa.dswa.cache.json
@@ -168,6 +174,7 @@ C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\a6wjx
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\tl16h5zdi0-{0}-lugek5hnai-lugek5hnai.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\ix8h6t3t9r-{0}-e8g7nh56kj-e8g7nh56kj.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\0cmbuehstd-{0}-61n19gt1b8-61n19gt1b8.gz
+C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\4ooopaekxz-{0}-ou1mk8im0n-ou1mk8im0n.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\jdkunfxu78-{0}-ra89dd10vu-ra89dd10vu.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\p0ejhu3iyb-{0}-7y25oh2dzs-7y25oh2dzs.gz
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\nigmwidcbo-{0}-fr7q2aak1r-fr7q2aak1r.gz
@@ -237,11 +244,4 @@ C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\compressed\4ooopaekxz-{0}-ou1mk8im0n-ou1mk8im0n.gz
-C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Mapster.dll
-C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Mapster.Core.dll
-C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Gym.Presentation.exe
-C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\SixLabors.ImageSharp.dll
-C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\System.IO.Hashing.dll
-C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\EXPRESS\Desktop\Gym\Gym.Presentation\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

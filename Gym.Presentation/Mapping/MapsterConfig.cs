@@ -11,6 +11,9 @@ using Gym.BusinessLogic.DTOs.Bookings;
 using Gym.Presentation.ViewModels.Members;
 using Gym.Presentation.ViewModels.Plans;
 using Gym.Presentation.ViewModels.Sessions;
+using Gym.BusinessLogic.DTOs.Memberships;
+using Gym.Presentation.ViewModels.Memberships;
+using Gym.Presentation.ViewModels.Trainers;
 using Mapster;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -44,6 +47,11 @@ public static class MapsterConfig
         TypeAdapterConfig<HealthRecordDto, HealthRecordViewModel>.NewConfig();
 
         TypeAdapterConfig<MemberListItemDto, MemberListItemViewModel>.NewConfig();
+        TypeAdapterConfig<MembershipListItemDto, MembershipListItemViewModel>.NewConfig();
+        TypeAdapterConfig<CreateMembershipViewModel, CreateMembershipDto>.NewConfig();
+        TypeAdapterConfig<TrainerListItemDto, TrainerListItemViewModel>.NewConfig();
+        TypeAdapterConfig<TrainerFormViewModel, CreateTrainerDto>.NewConfig();
+        TypeAdapterConfig<CreateTrainerDto, TrainerFormViewModel>.NewConfig();
 
         TypeAdapterConfig<CreateMemberViewModel, CreateMemberDto>.NewConfig()
             .Map(destination => destination.HeightInCentimeters, source => source.HealthRecordViewModel.Height)

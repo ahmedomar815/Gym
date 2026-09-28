@@ -4,6 +4,7 @@ using Gym.BusinessLogic.DTOs.Plans;
 using Gym.BusinessLogic.DTOs.Sessions;
 using Gym.BusinessLogic.DTOs.Trainers;
 using Gym.BusinessLogic.DTOs.Bookings;
+using Gym.BusinessLogic.DTOs.Memberships;
 using Gym.DataAccess.Models;
 using Mapster;
 
@@ -88,6 +89,10 @@ public static class MapsterConfig
             .Map(destination => destination.TrainerName, source => source.Session.Trainer.Name)
             .Map(destination => destination.StartTime, source => source.Session.StartTime)
             .Map(destination => destination.EndTime, source => source.Session.EndTime);
+
+        TypeAdapterConfig<Membership, MembershipListItemDto>.NewConfig()
+            .Map(destination => destination.MemberName, source => source.Member.Name)
+            .Map(destination => destination.PlanName, source => source.Plan.Name);
 
         TypeAdapterConfig<Member, BookingMemberOptionDto>.NewConfig();
         TypeAdapterConfig<Session, BookingSessionOptionDto>.NewConfig()

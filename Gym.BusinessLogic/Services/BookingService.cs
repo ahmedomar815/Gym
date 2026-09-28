@@ -33,6 +33,7 @@ internal sealed class BookingService(IUniteOfWork unitOfWork) : IBookingService
                 .Where(member => member.IsActive)
                 .OrderBy(member => member.Name)
                 .Adapt<List<BookingMemberOptionDto>>(),
+
             Sessions = availableSessions
                 .Where(session => session.StartTime > DateTime.Now && session.Bookings.Count < session.Capacity)
                 .OrderBy(session => session.StartTime)

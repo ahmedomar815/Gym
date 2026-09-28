@@ -6,7 +6,7 @@
     <header class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
         <div>
             <h1 class="h2 text-primary-color mb-1">Bookings</h1>
-            <p class="text-muted mb-0">Keep track of members registered for training sessions.</p>
+            <p class="text-muted mb-0">Today’s scheduled member registrations.</p>
         </div>
         <a asp-action="Create" class="btn btn-fill rounded-pill px-4 py-2">
             <i class="bi bi-calendar-plus me-2"></i>New Booking
@@ -47,7 +47,7 @@
     {
         <div class="text-center py-5 border rounded bg-light">
             <i class="bi bi-calendar-x display-5 text-muted"></i>
-            <h2 class="h4 mt-3">No bookings yet</h2>
+            <h2 class="h4 mt-3">No bookings today</h2>
             <p class="text-muted">Add a member to an upcoming training session.</p>
             <a asp-action="Create" class="btn btn-fill rounded-pill px-4">Create booking</a>
         </div>

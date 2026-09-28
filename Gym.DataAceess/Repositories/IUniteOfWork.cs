@@ -11,6 +11,7 @@ public  interface IUniteOfWork:IAsyncDisposable
     public ITrainerRepository Trainers { get; }
     public ICategoryRepository Categories { get; }
     public  IPlanRepository Plans { get; }
+    public IRepository<Membership> Memberships { get; }
     public IRepository<HealthyRecord> HealthyRecords {  get;  }
     Task<int> CommitAsync(CancellationToken cancellationToken);
     Task BeginTransactionAsync(CancellationToken cancellationToken);
