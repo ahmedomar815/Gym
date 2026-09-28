@@ -1,6 +1,6 @@
 using Gym.BusinessLogic.DTOs.HealthRecords;
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
+using Gym.BusinessLogic.Repositories;
 
 namespace Gym.BusinessLogic.Services;
 

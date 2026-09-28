@@ -1,9 +1,12 @@
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
 
-namespace Gym.DataAceess.Repositories;
+namespace Gym.BusinessLogic.Repositories;
 
 public interface ISessionRepository : IRepository<Session>
 {
+    Task<Session?> GetWithDetailsAsync(
+        int sessionId,
+        CancellationToken cancellationToken = default);
+
     Task<IReadOnlyList<Session>> GetAllWithDetailsAsync(CancellationToken cancellationToken = default);
 }

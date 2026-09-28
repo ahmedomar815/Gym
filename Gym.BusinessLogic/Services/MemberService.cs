@@ -2,9 +2,7 @@ using Gym.BusinessLogic.AttachmentRules;
 using Gym.BusinessLogic.DTOs.Members;
 using Gym.BusinessLogic.Results;
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
-using Gym.DataAceess.Repositories;
-using Gym.DataAceess.Specificaiton.Members;
+using Gym.BusinessLogic.Repositories;
 using Mapster;
 
 
@@ -23,8 +21,7 @@ internal sealed class MemberService(IUniteOfWork UniteOfWork, IBookingService bo
 
     public async Task<MemberDetailsDto?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        var specification = new MemberWithMembershipsAndPlanSpecification(id);
-        var member = await _uniteOfWork.Members.GetEntityWithSpecificationAsync(specification, cancellationToken);
+        var member = await _uniteOfWork.Members.GetWithMembershipsAndPlanAsync(id, cancellationToken);
         return member?.Adapt<MemberDetailsDto>();
     }
 

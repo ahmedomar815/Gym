@@ -1,8 +1,7 @@
 using Gym.BusinessLogic.DTOs.Memberships;
 using Gym.BusinessLogic.Results;
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
-using Gym.DataAceess.Specificaiton.Memberships;
+using Gym.BusinessLogic.Repositories;
 using Mapster;
 
 namespace Gym.BusinessLogic.Services;
@@ -11,8 +10,7 @@ internal sealed class MembershipService(IUniteOfWork unitOfWork) : IMembershipSe
 {
     public async Task<IReadOnlyList<MembershipListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        var memberships = await unitOfWork.Memberships.GetAllWithSpecificationAsync(
-            new MembershipWithMemberAndPlanSpecification(), cancellationToken);
+        var memberships = await unitOfWork.Memberships.GetAllWithMemberAndPlanAsync(cancellationToken);
 
         return memberships.Adapt<List<MembershipListItemDto>>();
     }

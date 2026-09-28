@@ -1,9 +1,17 @@
+using Gym.BusinessLogic.Repositories;
 using Gym.DataAccess.Data.Contexts;
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
+using Gym.DataAceess.Specificaiton.Bookings;
 
-namespace Gym.DataAceess.Repositories;
+namespace Gym.DataAccess.Repositories;
 
 internal sealed class BookingRepository(GymDbContext context) : Repository<Booking>(context), IBookingRepository
 {
+    public Task<IReadOnlyList<Booking>> GetTodayWithDetailsAsync(
+        CancellationToken cancellationToken = default)
+    {
+        return GetAllWithSpecificationAsync(
+            new BookingWithMemberSessionDetails(),
+            cancellationToken);
+    }
 }

@@ -1,3 +1,4 @@
+using Gym.BusinessLogic.Repositories;
 using Gym.DataAccess.Data.Contexts;
 using Gym.DataAccess.Models;
 using Gym.DataAceess.Specificaiton;

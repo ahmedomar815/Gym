@@ -845,7 +845,6 @@
       },
       "Gym.BusinessLogic/1.0.0": {
         "dependencies": {
-          "Gym.DataAceess": "1.0.0",
           "Mapster": "10.0.12",
           "SixLabors.ImageSharp": "4.1.2"
         },
@@ -858,6 +857,7 @@
       },
       "Gym.DataAceess/1.0.0": {
         "dependencies": {
+          "Gym.BusinessLogic": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.11",
           "Microsoft.EntityFrameworkCore": "10.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.11"

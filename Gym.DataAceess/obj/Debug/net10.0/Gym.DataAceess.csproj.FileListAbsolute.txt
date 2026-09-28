@@ -13,3 +13,6 @@ C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\ref\Gym.DataAceess
 C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.sourcelink.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\bin\Debug\net10.0\Gym.DataAceess.runtimeconfig.json
 C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.DataAceess.genruntimeconfig.cache
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\bin\Debug\net10.0\Gym.BusinessLogic.dll
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\bin\Debug\net10.0\Gym.BusinessLogic.pdb
+C:\Users\EXPRESS\Desktop\Gym\Gym.DataAceess\obj\Debug\net10.0\Gym.Data.586A764A.Up2Date

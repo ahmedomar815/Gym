@@ -1,6 +1,6 @@
 using Gym.BusinessLogic.DTOs.Plans;
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
+using Gym.BusinessLogic.Repositories;
 using Mapster;
 
 namespace Gym.BusinessLogic.Services;

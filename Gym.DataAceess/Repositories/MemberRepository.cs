@@ -1,9 +1,10 @@
+using Gym.BusinessLogic.Repositories;
 using Gym.DataAccess.Data.Contexts;
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
+using Gym.DataAceess.Specificaiton.Members;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gym.DataAceess.Repositories;
+namespace Gym.DataAccess.Repositories;
 
 internal class MemberRepository(GymDbContext context) : Repository<Member>(context), IMemberRepository
 {
@@ -22,6 +23,15 @@ internal class MemberRepository(GymDbContext context) : Repository<Member>(conte
     public Task<bool> HasBookingsAsync(int memberId, CancellationToken cancellationToken = default)
     {
         return _context.Bookings.AnyAsync(booking => booking.MemberId == memberId, cancellationToken);
+    }
+
+    public Task<Member?> GetWithMembershipsAndPlanAsync(
+        int memberId,
+        CancellationToken cancellationToken = default)
+    {
+        return GetEntityWithSpecificationAsync(
+            new MemberWithMembershipsAndPlanSpecification(memberId),
+            cancellationToken);
     }
 
 }

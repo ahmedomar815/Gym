@@ -1,6 +1,5 @@
 ﻿using Gym.BusinessLogic.Results;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Hosting;
 
 namespace Gym.BusinessLogic.AttachmentRules;

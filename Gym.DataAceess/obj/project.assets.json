@@ -51,6 +51,27 @@
           }
         }
       },
+      "Mapster/10.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Mapster.Core": "10.0.12"
+        },
+        "compile": {
+          "lib/net10.0/Mapster.dll": {}
+        },
+        "runtime": {
+          "lib/net10.0/Mapster.dll": {}
+        }
+      },
+      "Mapster.Core/10.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Mapster.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Mapster.Core.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/10.0.11": {
         "type": "package",
         "compile": {
@@ -1240,6 +1261,25 @@
           }
         }
       },
+      "SixLabors.ImageSharp/4.1.2": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Hashing": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
       "System.ClientModel/1.8.0": {
         "type": "package",
         "dependencies": {
@@ -1446,6 +1486,22 @@
           }
         }
       },
+      "System.IO.Hashing/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "System.Memory.Data/8.0.1": {
         "type": "package",
         "compile": {
@@ -1499,6 +1555,23 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "Gym.BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Mapster": "10.0.12",
+          "SixLabors.ImageSharp": "4.1.2"
+        },
+        "compile": {
+          "bin/placeholder/Gym.BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Gym.BusinessLogic.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -1559,6 +1632,35 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Mapster/10.0.12": {
+      "sha512": "ap0sVf4YxqYVSj2wafyrknuj2hWkWhpSm+SXTvrOQlc2vLG7u51dJ8GazaSHLLG6saHN5uPCBeP+YIqXS0a1vg==",
+      "type": "package",
+      "path": "mapster/10.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net10.0/Mapster.dll",
+        "lib/net8.0/Mapster.dll",
+        "lib/net9.0/Mapster.dll",
+        "lib/netstandard2.0/Mapster.dll",
+        "mapster.10.0.12.nupkg.sha512",
+        "mapster.nuspec"
+      ]
+    },
+    "Mapster.Core/10.0.12": {
+      "sha512": "iLPB0xAzxMWKhbBjWb4ZdQMV/TNEuZafDOoONhtDjBD4bEmf6BwcZt2v0MHhS7xbjwi1JUR266XMarfEs9BUIw==",
+      "type": "package",
+      "path": "mapster.core/10.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/Mapster.Core.dll",
+        "mapster.core.10.0.12.nupkg.sha512",
+        "mapster.core.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/10.0.11": {
@@ -3809,6 +3911,25 @@
         "packageIcon.png"
       ]
     },
+    "SixLabors.ImageSharp/4.1.2": {
+      "sha512": "AQ0oouhH/6qmXJC70/k50iVt7SiZRjCgd4tXXiC5ZrB5CvyBwA81HTqb5twcXz8CvTAFxUNV0TAcL83OhyRA1g==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/4.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/SixLabors.ImageSharp.props",
+        "build/SixLabors.ImageSharp.targets",
+        "build/net472/SixLabors.Licensing.dll",
+        "build/net8.0/SixLabors.Licensing.dll",
+        "lib/net8.0/SixLabors.ImageSharp.dll",
+        "lib/net8.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.4.1.2.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
     "System.ClientModel/1.8.0": {
       "sha512": "AqRzhn0v29GGGLj/Z6gKq4lGNtvPHT4nHdG5PDJh9IfVjv/nYUVmX11hwwws1vDFeIAzrvmn0dPu8IjLtu6fAw==",
       "type": "package",
@@ -4101,6 +4222,36 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
+    "System.IO.Hashing/8.0.0": {
+      "sha512": "ne1843evDugl0md7Fjzy6QjJrzsjh46ZKbhf8GwBXb5f/gw97J4bxMs0NQKifDuThh/f0bZ0e62NPl1jzTuRqA==",
+      "type": "package",
+      "path": "system.io.hashing/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Hashing.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.IO.Hashing.targets",
+        "lib/net462/System.IO.Hashing.dll",
+        "lib/net462/System.IO.Hashing.xml",
+        "lib/net6.0/System.IO.Hashing.dll",
+        "lib/net6.0/System.IO.Hashing.xml",
+        "lib/net7.0/System.IO.Hashing.dll",
+        "lib/net7.0/System.IO.Hashing.xml",
+        "lib/net8.0/System.IO.Hashing.dll",
+        "lib/net8.0/System.IO.Hashing.xml",
+        "lib/netstandard2.0/System.IO.Hashing.dll",
+        "lib/netstandard2.0/System.IO.Hashing.xml",
+        "system.io.hashing.8.0.0.nupkg.sha512",
+        "system.io.hashing.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Memory.Data/8.0.1": {
       "sha512": "BVYuec3jV23EMRDeR7Dr1/qhx7369dZzJ9IWy2xylvb4YfXsrUxspWc4UWYid/tj4zZK58uGZqn2WQiaDMhmAg==",
       "type": "package",
@@ -4197,10 +4348,16 @@
         "system.security.cryptography.protecteddata.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Gym.BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../Gym.BusinessLogic/Gym.BusinessLogic.csproj",
+      "msbuildProject": "../Gym.BusinessLogic/Gym.BusinessLogic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Gym.BusinessLogic >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 10.0.11",
       "Microsoft.EntityFrameworkCore >= 10.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.11",
@@ -4241,7 +4398,11 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Gym.BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\EXPRESS\\Desktop\\Gym\\Gym.BusinessLogic\\Gym.BusinessLogic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

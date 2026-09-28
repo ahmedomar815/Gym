@@ -4,8 +4,7 @@ using Gym.BusinessLogic.DTOs.Trainers;
 
 using Gym.BusinessLogic.Results;
 using Gym.DataAccess.Models;
-using Gym.DataAccess.Repositories;
-using Gym.DataAceess.Specificaiton.Sessions;
+using Gym.BusinessLogic.Repositories;
 using Mapster;
 
 namespace Gym.BusinessLogic.Services;
@@ -36,9 +35,7 @@ internal sealed class SessionService(IUniteOfWork unitOfWork) : ISessionService
     }
     public async Task<Result<SessionDetailsDto>> GetDetailsByID(int Id, CancellationToken cancellationToken = default)
     {
-       var session = await unitOfWork.Sessions.GetEntityWithSpecificationAsync(
-           new SessionWithTrainerCategoryAndBookingById(Id),
-           cancellationToken);
+       var session = await unitOfWork.Sessions.GetWithDetailsAsync(Id, cancellationToken);
         if (session == null)
             return  Result.Failure<SessionDetailsDto>("Session not found.", nameof(Id));
 
@@ -55,9 +52,7 @@ internal sealed class SessionService(IUniteOfWork unitOfWork) : ISessionService
 
     public async Task<SessionDetailsDto?> GetForDeleteAsync(int id, CancellationToken cancellationToken = default)
     {
-        var session = await unitOfWork.Sessions.GetEntityWithSpecificationAsync(
-            new SessionWithTrainerCategoryAndBookingById(id),
-            cancellationToken);
+        var session = await unitOfWork.Sessions.GetWithDetailsAsync(id, cancellationToken);
 
         if (session is null)
             return null;

@@ -1,7 +1,6 @@
 using Gym.DataAccess.Models;
-using Gym.DataAceess.Repositories;
 
-namespace Gym.DataAccess.Repositories;
+namespace Gym.BusinessLogic.Repositories;
 
 public  interface IUniteOfWork:IAsyncDisposable
 {
@@ -11,7 +10,7 @@ public  interface IUniteOfWork:IAsyncDisposable
     public ITrainerRepository Trainers { get; }
     public ICategoryRepository Categories { get; }
     public  IPlanRepository Plans { get; }
-    public IRepository<Membership> Memberships { get; }
+    public IMembershipRepository Memberships { get; }
     public IRepository<HealthyRecord> HealthyRecords {  get;  }
     Task<int> CommitAsync(CancellationToken cancellationToken);
     Task BeginTransactionAsync(CancellationToken cancellationToken);

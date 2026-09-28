@@ -1,6 +1,6 @@
 using Gym.DataAccess.Models;
 
-namespace Gym.DataAccess.Repositories;
+namespace Gym.BusinessLogic.Repositories;
 
 public interface ICategoryRepository : IRepository<Category>
 {

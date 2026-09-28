@@ -1,5 +1,5 @@
 using Gym.BusinessLogic.DTOs.Dashboard;
-using Gym.DataAccess.Repositories;
+using Gym.BusinessLogic.Repositories;
 
 namespace Gym.BusinessLogic.Services;
 

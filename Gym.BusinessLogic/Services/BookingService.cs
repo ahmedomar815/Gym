@@ -1,9 +1,7 @@
-using Gym.DataAccess.Repositories;
+using Gym.BusinessLogic.Repositories;
 using Gym.BusinessLogic.DTOs.Bookings;
 using Gym.BusinessLogic.Results;
 using Gym.DataAccess.Models;
-using Gym.DataAceess.Specificaiton.Sessions;
-using Gym.DataAceess.Specificaiton.Bookings;
 using Mapster;
 
 namespace Gym.BusinessLogic.Services;
@@ -17,8 +15,7 @@ internal sealed class BookingService(IUniteOfWork unitOfWork) : IBookingService
 
     public async Task<IReadOnlyList<BookingListItemDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        var bookings = await unitOfWork.Bookings.GetAllWithSpecificationAsync(
-            new BookingWithMemberSessionDetails(), cancellationToken);
+        var bookings = await unitOfWork.Bookings.GetTodayWithDetailsAsync(cancellationToken);
         return bookings.Adapt<List<BookingListItemDto>>();
     }
 
@@ -47,8 +44,7 @@ internal sealed class BookingService(IUniteOfWork unitOfWork) : IBookingService
         if (member is null || !member.IsActive)
             return Result.Failure("The selected member is unavailable.", nameof(model.MemberId));
 
-        var session = await unitOfWork.Sessions.GetEntityWithSpecificationAsync(
-            new SessionWithTrainerCategoryAndBookingById(model.SessionId), cancellationToken);
+        var session = await unitOfWork.Sessions.GetWithDetailsAsync(model.SessionId, cancellationToken);
         if (session is null || session.StartTime <= DateTime.Now)
             return Result.Failure("The selected session is no longer available.", nameof(model.SessionId));
 
